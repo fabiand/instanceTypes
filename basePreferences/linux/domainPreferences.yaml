@@ -2,6 +2,8 @@ apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceDomainPreferences
 metadata:
   name: linux
+  annotations:
+    vm.kubevirt.io/osFamily: "linux"
 spec:
   terminationGracePeriodSeconds: 180
   diskDefaults:

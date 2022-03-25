@@ -18,6 +18,8 @@ spec:
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceDomainPreferences
 metadata:
+  annotations:
+    vm.kubevirt.io/osFamily: linux
   name: linux.rhel9
 spec:
   devices:
@@ -31,8 +33,12 @@ spec:
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceDomainPreferences
 metadata:
+  annotations:
+    vm.kubevirt.io/osFamily: windows
   name: windows.windows10
 spec:
+  cpu:
+    topologyPolicy: cores-to-sockets
   diskDefaults:
     preferedCDROMBus: sata
     preferedDiskBus: sata
@@ -65,8 +71,12 @@ spec:
         tlbflush: {}
         vapic: {}
         vpindex: {}
+    inputs:
+    - bus: usb
+      name: tablet
+      type: tablet
   preferedCpuTopology: cores
-  terminationGracePeriodSeconds: 300
+  terminationGracePeriodSeconds: 3600
 ---
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
