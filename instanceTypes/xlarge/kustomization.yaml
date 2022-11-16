@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../families/cx
-  - ../families/n
-  - ../families/m
-  - ../families/gn
+  - ../series/cx
+  - ../series/n
+  - ../series/m
+  - ../series/gn
 
 nameSuffix: .xlarge
 
