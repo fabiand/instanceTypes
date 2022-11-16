@@ -11,10 +11,10 @@ nameSuffix: .large
 patches:
 - path: cx.yaml
   target:
-    name: "cx"
+    name: "cx1"
 - path: n.yaml
   target:
-    name: "n"
+    name: "n1"
 - path: m.yaml
   target:
-    name: "m"
+    name: "m1"

@@ -1,10 +1,11 @@
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
 metadata:
-  class: Compute intensive
-  description: |
-    The CX Family provides exclusive compute resources for compute intensive applications.
-  name: cx.large
+  annotations:
+    series.class: Compute intensive
+    series.description: The CX Series provides exclusive compute resources for compute
+      intensive applications.
+  name: cx1.large
 spec:
   blockMultiQueue: true
   cpu:
@@ -22,10 +23,11 @@ spec:
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
 metadata:
-  class: Compute intensive
-  description: |
-    The CX Family provides exclusive compute resources for compute intensive applications.
-  name: cx.xlarge
+  annotations:
+    series.class: Compute intensive
+    series.description: The CX Series provides exclusive compute resources for compute
+      intensive applications.
+  name: cx1.xlarge
 spec:
   blockMultiQueue: true
   cpu:
@@ -43,10 +45,11 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: GPU
-  description: |
-    The GN Family provides instances types intended for VMs with NVIDIA GPU resources attached.
-  name: gn.xlarge
+  annotations:
+    series.class: GPU
+    series.description: The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+  name: gn1.xlarge
 spec:
   cpu:
     cores: 4
@@ -58,10 +61,10 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: Memory intensive
-  description: |
-    The M Family provides resources for memory intensive applications.
-  name: m.large
+  annotations:
+    series.class: Memory intensive
+    series.description: The M Series provides resources for memory intensive applications.
+  name: m1.large
 spec:
   cpu:
     cores: 2
@@ -75,10 +78,10 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: Memory intensive
-  description: |
-    The M Family provides resources for memory intensive applications.
-  name: m.xlarge
+  annotations:
+    series.class: Memory intensive
+    series.description: The M Series provides resources for memory intensive applications.
+  name: m1.xlarge
 spec:
   cpu:
     cores: 4
@@ -92,10 +95,11 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: General purpose
-  description: |
-    The N Family is quite neutral and provides resources for general purpose applications.
-  name: n.large
+  annotations:
+    series.class: General purpose
+    series.description: The N Series is quite neutral and provides resources for general
+      purpose applications.
+  name: n1.large
 spec:
   cpu:
     cores: 2
@@ -105,23 +109,25 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: General purpose
-  description: |
-    The N Family is quite neutral and provides resources for general purpose applications.
-  name: n.small
+  annotations:
+    series.class: General purpose
+    series.description: The N Series is quite neutral and provides resources for general
+      purpose applications.
+  name: n1.small
 spec:
   cpu:
     cores: 1
   memory:
-    guest: 2Gi
+    guest: 1Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  class: General purpose
-  description: |
-    The N Family is quite neutral and provides resources for general purpose applications.
-  name: n.xlarge
+  annotations:
+    series.class: General purpose
+    series.description: The N Series is quite neutral and provides resources for general
+      purpose applications.
+  name: n1.xlarge
 spec:
   cpu:
     cores: 4

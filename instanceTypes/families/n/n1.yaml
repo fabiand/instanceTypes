@@ -2,8 +2,13 @@
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: "n"
-  description: >
-    The N Family is quite neutral and provides resources for general purpose applications.
-  class: "General purpose"
-spec: {}
+  name: "n1"
+  annotations:
+    series.description: >-
+      The N Series is quite neutral and provides resources for general purpose applications.
+    series.class: "General purpose"
+spec:
+  cpu:
+    cores: 1
+  memory:
+    guest: 1Gi

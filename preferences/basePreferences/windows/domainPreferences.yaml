@@ -3,7 +3,7 @@ kind: VirtualMachineInstanceDomainPreferences
 metadata:
   name: windows
   annotations:
-    vm.kubevirt.io/osFamily: "windows"
+    vm.kubevirt.io/osSeries: "windows"
 spec:
   terminationGracePeriodSeconds: 3600
   cpu:

@@ -2,10 +2,11 @@
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: "gn"
-  description: >
-    The GN Family provides instances types intended for VMs with NVIDIA GPU resources attached.
-  class: "GPU"
+  name: "gn1"
+  annotations:
+    series.description: >-
+      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+    series.class: "GPU"
 spec:
   gpus:
   - resourceName: "nvidia.com/A400"

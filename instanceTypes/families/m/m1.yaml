@@ -2,10 +2,11 @@
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: "m"
-  description: >
-    The M Family provides resources for memory intensive applications.
-  class: "Memory intensive"
+  name: "m1"
+  annotations:
+    series.description: >-
+      The M Series provides resources for memory intensive applications.
+    series.class: "Memory intensive"
 spec:
   memory:
     hugepages:
