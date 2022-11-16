@@ -1,6 +1,0 @@
-# https://aws.amazon.com/ec2/instance-types/#General_Purpose
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
-metadata:
-  name: m
-spec: {}

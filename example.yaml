@@ -16,78 +16,17 @@ spec:
     name: cloudinit
 ---
 apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceDomainPreferences
-metadata:
-  annotations:
-    vm.kubevirt.io/osFamily: linux
-  name: linux.rhel9
-spec:
-  devices:
-    rng: {}
-  diskDefaults:
-    preferedCDROMBus: virtio
-    preferedDiskBus: virtio
-  preferedCpuTopology: sockets
-  terminationGracePeriodSeconds: 180
----
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceDomainPreferences
-metadata:
-  annotations:
-    vm.kubevirt.io/osFamily: windows
-  name: windows.windows10
-spec:
-  cpu:
-    topologyPolicy: cores-to-sockets
-  diskDefaults:
-    preferedCDROMBus: sata
-    preferedDiskBus: sata
-  domain:
-    clock:
-      timer:
-        hpet:
-          present: false
-        hyperv: {}
-        pit:
-          tickPolicy: delay
-        rtc:
-          tickPolicy: catchup
-      utc: {}
-    features:
-      acpi: {}
-      apic: {}
-      hyperv:
-        frequencies: {}
-        ipi: {}
-        reenlightenment: {}
-        relaxed: {}
-        reset: {}
-        runtime: {}
-        spinlocks:
-          spinlocks: 8191
-        synic: {}
-        synictimer:
-          direct: {}
-        tlbflush: {}
-        vapic: {}
-        vpindex: {}
-    inputs:
-    - bus: usb
-      name: tablet
-      type: tablet
-  preferedCpuTopology: cores
-  terminationGracePeriodSeconds: 3600
----
-apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
 metadata:
-  name: c.large
+  description: |
+    The CX Family provides exclusive compute resources for compute intensive applications.
+  name: cx.large
 spec:
   blockMultiQueue: true
   cpu:
     cores: 2
     dedicatedCpuPlacement: true
-    ioThreadsPolicy: shared
+    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
@@ -96,98 +35,42 @@ spec:
     guest: 4Gi
   networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
+apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: c.small
-spec:
-  blockMultiQueue: true
-  cpu:
-    cores: 1
-    dedicatedCpuPlacement: true
-    ioThreadsPolicy: shared
-    isolateEmulatorThread: true
-    numa:
-      guestMappingPassthrough: {}
-  dedicatedIOThread: true
-  memory:
-    guest: 2Gi
-  networkInterfaceMultiQueue: true
----
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
-metadata:
-  name: c.xlarge
-spec:
-  blockMultiQueue: true
-  cpu:
-    cores: 4
-    dedicatedCpuPlacement: true
-    ioThreadsPolicy: shared
-    isolateEmulatorThread: true
-    numa:
-      guestMappingPassthrough: {}
-  dedicatedIOThread: true
-  memory:
-    guest: 8Gi
-  networkInterfaceMultiQueue: true
----
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
-metadata:
-  name: g.xlarge
-spec:
-  cpu:
-    cores: 4
-  gpus:
-  - resourceName: nvidia.com/A400
-  memory:
-    guest: 16Gi
----
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
-metadata:
+  description: |
+    The M Family provides resources for memory intensive applications.
   name: m.large
 spec:
   cpu:
     cores: 2
-  memory:
-    guest: 8Gi
----
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
-metadata:
-  name: m.xlarge
-spec:
-  cpu:
-    cores: 4
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
   memory:
     guest: 16Gi
+    hugepages:
+      pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha1
+apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: r.large
+  description: |
+    The N Family is quite neutral and provides resources for general purpose applications.
+  name: n.large
 spec:
   cpu:
     cores: 2
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
   memory:
-    guest: 16Gi
-    hugepages:
-      pageSize: 2Mi
+    guest: 8Gi
 ---
-apiVersion: kubevirt.io/v1alpha1
+apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
-  name: r.xlarge
+  description: |
+    The N Family is quite neutral and provides resources for general purpose applications.
+  name: n.small
 spec:
   cpu:
-    cores: 4
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    cores: 1
   memory:
-    guest: 32Gi
-    hugepages:
-      pageSize: 2Mi
+    guest: 2Gi

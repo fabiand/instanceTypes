@@ -1,0 +1,8 @@
+# https://aws.amazon.com/ec2/instance-types/#General_Purpose
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  name: "n"
+  description: >
+    The N Family is quite neutral and provides resources for general purpose applications.
+spec: {}

@@ -1,7 +1,7 @@
 resources:
-- small
-- large
-- xlarge
-- rhel9
-- windows10
+- instanceTypes/small
+- instanceTypes/large
+#- instanceTypes/xlarge
+#- preferences/rhel9
+#- preferences/windows10
 - vm.yaml

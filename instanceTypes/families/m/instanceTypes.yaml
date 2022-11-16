@@ -1,0 +1,14 @@
+# https://aws.amazon.com/ec2/instance-types/#Memory_Optimized
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  name: "m"
+  description: >
+    The M Family provides resources for memory intensive applications.
+spec:
+  memory:
+    hugepages:
+      pageSize: "2Mi"
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+
