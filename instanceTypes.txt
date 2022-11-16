@@ -1,0 +1,9 @@
+Class            	Name      	Series Description                                                                         	Cores	Memory
+Compute intensive	cx1.large 	The CX Series provides exclusive compute resources for compute intensive applications.     	2	4Gi 
+Compute intensive	cx1.xlarge	The CX Series provides exclusive compute resources for compute intensive applications.     	4	16Gi
+GPU              	gn1.xlarge	The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.	4	16Gi
+Memory intensive 	m1.large  	The M Series provides resources for memory intensive applications.                         	2	16Gi
+Memory intensive 	m1.xlarge 	The M Series provides resources for memory intensive applications.                         	4	32Gi
+General purpose  	n1.large  	The N Series is quite neutral and provides resources for general purpose applications.     	2	8Gi 
+General purpose  	n1.small  	The N Series is quite neutral and provides resources for general purpose applications.     	1	1Gi 
+General purpose  	n1.xlarge 	The N Series is quite neutral and provides resources for general purpose applications.     	4	8Gi 
