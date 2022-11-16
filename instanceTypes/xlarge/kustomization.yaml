@@ -2,23 +2,23 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../families/c
+  - ../families/cx
+  - ../families/n
   - ../families/m
-  - ../families/r
-  - ../families/g
+  - ../families/gn
 
 nameSuffix: .xlarge
 
 patches:
-  - path: c.yaml
+  - path: cx.yaml
     target:
-      name: "c"
+      name: "cx"
+  - path: n.yaml
+    target:
+      name: "n"
   - path: m.yaml
     target:
       name: "m"
-  - path: r.yaml
+  - path: gn.yaml
     target:
-      name: "r"
-  - path: g.yaml
-    target:
-      name: "g"
+      name: "gn"

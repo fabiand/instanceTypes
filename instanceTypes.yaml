@@ -1,0 +1,121 @@
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The CX Family provides exclusive compute resources for compute intensive applications.
+  name: cx.large
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 2
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 4Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The CX Family provides exclusive compute resources for compute intensive applications.
+  name: cx.xlarge
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 4
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 16Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The GN Family provides instances types intended for VMs with NVIDIA GPU resources attached.
+  name: gn.xlarge
+spec:
+  cpu:
+    cores: 4
+  gpus:
+  - resourceName: nvidia.com/A400
+  memory:
+    guest: 16Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The M Family provides resources for memory intensive applications.
+  name: m.large
+spec:
+  cpu:
+    cores: 2
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+  memory:
+    guest: 16Gi
+    hugepages:
+      pageSize: 2Mi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The M Family provides resources for memory intensive applications.
+  name: m.xlarge
+spec:
+  cpu:
+    cores: 4
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+  memory:
+    guest: 32Gi
+    hugepages:
+      pageSize: 2Mi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The N Family is quite neutral and provides resources for general purpose applications.
+  name: n.large
+spec:
+  cpu:
+    cores: 2
+  memory:
+    guest: 8Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The N Family is quite neutral and provides resources for general purpose applications.
+  name: n.small
+spec:
+  cpu:
+    cores: 1
+  memory:
+    guest: 2Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  description: |
+    The N Family is quite neutral and provides resources for general purpose applications.
+  name: n.xlarge
+spec:
+  cpu:
+    cores: 4
+  memory:
+    guest: 8Gi

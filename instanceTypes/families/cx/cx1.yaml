@@ -1,0 +1,17 @@
+# https://aws.amazon.com/ec2/instance-types/#Compute_Optimized
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  name: "cx"
+  description: >
+    The CX Family provides exclusive compute resources for compute intensive applications.
+spec:
+  cpu:
+    ioThreadsPolicy: "auto"
+    isolateEmulatorThread: true
+    dedicatedCpuPlacement: true
+    numa:
+      guestMappingPassthrough: {}
+  networkInterfaceMultiQueue: true
+  blockMultiQueue: true
+  dedicatedIOThread: true
