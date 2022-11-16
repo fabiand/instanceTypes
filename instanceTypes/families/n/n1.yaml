@@ -5,4 +5,5 @@ metadata:
   name: "n"
   description: >
     The N Family is quite neutral and provides resources for general purpose applications.
+  class: "General purpose"
 spec: {}

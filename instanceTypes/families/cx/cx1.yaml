@@ -5,6 +5,7 @@ metadata:
   name: "cx"
   description: >
     The CX Family provides exclusive compute resources for compute intensive applications.
+  class: "Compute intensive"
 spec:
   cpu:
     ioThreadsPolicy: "auto"

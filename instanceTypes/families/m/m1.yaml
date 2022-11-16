@@ -5,6 +5,7 @@ metadata:
   name: "m"
   description: >
     The M Family provides resources for memory intensive applications.
+  class: "Memory intensive"
 spec:
   memory:
     hugepages:

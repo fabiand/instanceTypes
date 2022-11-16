@@ -5,6 +5,7 @@ metadata:
   name: "gn"
   description: >
     The GN Family provides instances types intended for VMs with NVIDIA GPU resources attached.
+  class: "GPU"
 spec:
   gpus:
   - resourceName: "nvidia.com/A400"
