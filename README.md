@@ -1,4 +1,3 @@
-Using kustomize to experiment with how higher level VM definitions could look.
+Run `make`
 
-Create the final definitions using `kubectl kustomize`
-Example output of this command is provided in [example.yaml](example.yaml)
+This repository contains a list of instances type commonly used.

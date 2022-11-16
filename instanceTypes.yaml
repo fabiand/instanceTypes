@@ -1,6 +1,7 @@
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
 metadata:
+  class: Compute intensive
   description: |
     The CX Family provides exclusive compute resources for compute intensive applications.
   name: cx.large
@@ -21,6 +22,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha1
 kind: VirtualMachineInstanceType
 metadata:
+  class: Compute intensive
   description: |
     The CX Family provides exclusive compute resources for compute intensive applications.
   name: cx.xlarge
@@ -41,6 +43,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: GPU
   description: |
     The GN Family provides instances types intended for VMs with NVIDIA GPU resources attached.
   name: gn.xlarge
@@ -55,6 +58,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: Memory intensive
   description: |
     The M Family provides resources for memory intensive applications.
   name: m.large
@@ -71,6 +75,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: Memory intensive
   description: |
     The M Family provides resources for memory intensive applications.
   name: m.xlarge
@@ -87,6 +92,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: General purpose
   description: |
     The N Family is quite neutral and provides resources for general purpose applications.
   name: n.large
@@ -99,6 +105,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: General purpose
   description: |
     The N Family is quite neutral and provides resources for general purpose applications.
   name: n.small
@@ -111,6 +118,7 @@ spec:
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
 metadata:
+  class: General purpose
   description: |
     The N Family is quite neutral and provides resources for general purpose applications.
   name: n.xlarge
