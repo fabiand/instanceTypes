@@ -2,11 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+- ../series/cx
 - ../series/n
 
-nameSuffix: .small
+nameSuffix: .medium
 
 patches:
 - path: n.yaml
   target:
-      name: "n"
+      name: "n1"
+- path: cx.yaml
+  target:
+      name: "cx1"

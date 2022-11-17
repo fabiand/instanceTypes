@@ -103,6 +103,30 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+  name: cx1.medium
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 1
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 2Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Compute intensive
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+    series.name: cx
   name: cx1.xlarge
 spec:
   blockMultiQueue: true
@@ -349,12 +373,12 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
-  name: n1.small
+  name: n1.medium
 spec:
   cpu:
     cores: 1
   memory:
-    guest: 1Gi
+    guest: 4Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType

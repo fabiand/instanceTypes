@@ -21,12 +21,26 @@ The following instance types are available in this series:
 
 Name       | Cores | Memory
 -----------|-------|-------
-n1.small   | 1     | 1Gi   
+n1.medium  | 1     | 4Gi   
 n1.large   | 2     | 8Gi   
 n1.xlarge  | 4     | 16Gi  
 n1.2xlarge | 8     | 32Gi  
 n1.4xlarge | 16    | 64Gi  
 n1.8xlarge | 32    | 128Gi 
+
+
+# M Series
+The M Series provides resources for memory intensive applications.
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+m1.large   | 2     | 16Gi  
+m1.xlarge  | 4     | 32Gi  
+m1.2xlarge | 8     | 64Gi  
+m1.4xlarge | 16    | 128Gi 
+m1.8xlarge | 32    | 256Gi 
 
 
 # CX Series
@@ -42,24 +56,11 @@ The following instance types are available in this series:
 
 Name        | Cores | Memory
 ------------|-------|-------
+cx1.medium  | 1     | 2Gi   
 cx1.large   | 2     | 4Gi   
 cx1.xlarge  | 4     | 8Gi   
 cx1.2xlarge | 8     | 16Gi  
 cx1.4xlarge | 16    | 32Gi  
 cx1.8xlarge | 32    | 64Gi  
-
-
-# M Series
-The M Series provides resources for memory intensive applications.
-
-The following instance types are available in this series:
-
-Name       | Cores | Memory
------------|-------|-------
-m1.large   | 2     | 16Gi  
-m1.xlarge  | 4     | 32Gi  
-m1.2xlarge | 8     | 64Gi  
-m1.4xlarge | 16    | 128Gi 
-m1.8xlarge | 32    | 256Gi 
 
 
