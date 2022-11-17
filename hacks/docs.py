@@ -54,7 +54,7 @@ class Series:
             return " | ".join(str(val).ljust(colMaxLens[idx]) for idx, val in enumerate(row))
 
         print(formatRow(hdr))
-        print("-".join("" for _ in range(-1, len(formatRow(hdr)))))
+        print(formatRow("-" * colMaxLens[idx] for idx,_ in enumerate(hdr)).replace(" ", "-"))
         for row in rows:
             print(formatRow(row))
 
