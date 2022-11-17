@@ -4,6 +4,7 @@ kind: VirtualMachineInstanceType
 metadata:
   name: "cx1"
   annotations:
+    series.name: "cx"
     series.description: >-
       The CX Series provides exclusive compute resources for compute intensive applications.
     series.class: "Compute intensive"

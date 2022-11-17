@@ -4,6 +4,7 @@ kind: VirtualMachineInstanceType
 metadata:
   name: "m1"
   annotations:
+    series.name: "m"
     series.description: >-
       The M Series provides resources for memory intensive applications.
     series.class: "Memory intensive"

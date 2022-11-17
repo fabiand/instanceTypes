@@ -5,6 +5,7 @@ metadata:
     series.class: Compute intensive
     series.description: The CX Series provides exclusive compute resources for compute
       intensive applications.
+    series.name: cx
   name: cx1.large
 spec:
   blockMultiQueue: true
@@ -27,6 +28,7 @@ metadata:
     series.class: Compute intensive
     series.description: The CX Series provides exclusive compute resources for compute
       intensive applications.
+    series.name: cx
   name: cx1.xlarge
 spec:
   blockMultiQueue: true
@@ -49,6 +51,7 @@ metadata:
     series.class: GPU
     series.description: The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
+    series.name: gn
   name: gn1.xlarge
 spec:
   cpu:
@@ -64,6 +67,7 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
+    series.name: m
   name: m1.large
 spec:
   cpu:
@@ -81,6 +85,7 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
+    series.name: m
   name: m1.xlarge
 spec:
   cpu:
@@ -99,6 +104,7 @@ metadata:
     series.class: General purpose
     series.description: The N Series is quite neutral and provides resources for general
       purpose applications.
+    series.name: "n"
   name: n1.large
 spec:
   cpu:
@@ -113,6 +119,7 @@ metadata:
     series.class: General purpose
     series.description: The N Series is quite neutral and provides resources for general
       purpose applications.
+    series.name: "n"
   name: n1.small
 spec:
   cpu:
@@ -127,6 +134,7 @@ metadata:
     series.class: General purpose
     series.description: The N Series is quite neutral and provides resources for general
       purpose applications.
+    series.name: "n"
   name: n1.xlarge
 spec:
   cpu:

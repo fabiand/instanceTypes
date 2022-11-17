@@ -4,6 +4,7 @@ kind: VirtualMachineInstanceType
 metadata:
   name: "n1"
   annotations:
+    series.name: "n"
     series.description: >-
       The N Series is quite neutral and provides resources for general purpose applications.
     series.class: "General purpose"
