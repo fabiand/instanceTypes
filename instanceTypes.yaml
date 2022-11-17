@@ -7,6 +7,78 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+  name: cx1.2xlarge
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 8
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 16Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Compute intensive
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+    series.name: cx
+  name: cx1.4xlarge
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 16
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 32Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Compute intensive
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+    series.name: cx
+  name: cx1.8xlarge
+spec:
+  blockMultiQueue: true
+  cpu:
+    cores: 32
+    dedicatedCpuPlacement: true
+    ioThreadsPolicy: auto
+    isolateEmulatorThread: true
+    numa:
+      guestMappingPassthrough: {}
+  dedicatedIOThread: true
+  memory:
+    guest: 64Gi
+  networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Compute intensive
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+    series.name: cx
   name: cx1.large
 spec:
   blockMultiQueue: true
@@ -43,8 +115,59 @@ spec:
       guestMappingPassthrough: {}
   dedicatedIOThread: true
   memory:
-    guest: 16Gi
+    guest: 8Gi
   networkInterfaceMultiQueue: true
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: GPU
+    series.description: The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+    series.name: gn
+  name: gn1.2xlarge
+spec:
+  cpu:
+    cores: 4
+  gpus:
+  - resourceName: nvidia.com/A400
+  memory:
+    guest: 16Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: GPU
+    series.description: The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+    series.name: gn
+  name: gn1.4xlarge
+spec:
+  cpu:
+    cores: 4
+  gpus:
+  - resourceName: nvidia.com/A400
+  memory:
+    guest: 16Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: GPU
+    series.description: The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+    series.name: gn
+  name: gn1.8xlarge
+spec:
+  cpu:
+    cores: 4
+  gpus:
+  - resourceName: nvidia.com/A400
+  memory:
+    guest: 16Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
@@ -62,6 +185,60 @@ spec:
   - resourceName: nvidia.com/A400
   memory:
     guest: 16Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Memory intensive
+    series.description: The M Series provides resources for memory intensive applications.
+    series.name: m
+  name: m1.2xlarge
+spec:
+  cpu:
+    cores: 8
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+  memory:
+    guest: 64Gi
+    hugepages:
+      pageSize: 2Mi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Memory intensive
+    series.description: The M Series provides resources for memory intensive applications.
+    series.name: m
+  name: m1.4xlarge
+spec:
+  cpu:
+    cores: 16
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+  memory:
+    guest: 128Gi
+    hugepages:
+      pageSize: 2Mi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: Memory intensive
+    series.description: The M Series provides resources for memory intensive applications.
+    series.name: m
+  name: m1.8xlarge
+spec:
+  cpu:
+    cores: 32
+  dedicatedCpuPlacement: true
+  isolateEmulatorThread: true
+  memory:
+    guest: 256Gi
+    hugepages:
+      pageSize: 2Mi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
@@ -98,6 +275,54 @@ spec:
     guest: 32Gi
     hugepages:
       pageSize: 2Mi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+    series.name: "n"
+  name: n1.2xlarge
+spec:
+  cpu:
+    cores: 8
+  memory:
+    guest: 32Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+    series.name: "n"
+  name: n1.4xlarge
+spec:
+  cpu:
+    cores: 16
+  memory:
+    guest: 64Gi
+---
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachineInstanceType
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+    series.name: "n"
+  name: n1.8xlarge
+spec:
+  cpu:
+    cores: 32
+  memory:
+    guest: 128Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType

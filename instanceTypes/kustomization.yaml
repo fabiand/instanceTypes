@@ -2,3 +2,6 @@ resources:
 - small
 - large
 - xlarge
+- 2xlarge
+- 4xlarge
+- 8xlarge
