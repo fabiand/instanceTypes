@@ -3,8 +3,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Compute intensive
-    series.description: The CX Series provides exclusive compute resources for compute
-      intensive applications.
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
   name: cx1.large
 spec:
@@ -26,8 +27,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Compute intensive
-    series.description: The CX Series provides exclusive compute resources for compute
-      intensive applications.
+    series.description: |-
+      The CX Series provides exclusive compute resources for compute intensive applications.
+      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
   name: cx1.xlarge
 spec:
@@ -102,8 +104,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: General purpose
-    series.description: The N Series is quite neutral and provides resources for general
-      purpose applications.
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
   name: n1.large
 spec:
@@ -117,8 +120,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: General purpose
-    series.description: The N Series is quite neutral and provides resources for general
-      purpose applications.
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
   name: n1.small
 spec:
@@ -132,8 +136,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: General purpose
-    series.description: The N Series is quite neutral and provides resources for general
-      purpose applications.
+    series.description: |-
+      The N Series is quite neutral and provides resources for general purpose applications.
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
   name: n1.xlarge
 spec:

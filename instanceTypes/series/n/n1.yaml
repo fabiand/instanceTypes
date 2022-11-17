@@ -7,6 +7,8 @@ metadata:
     series.name: "n"
     series.description: >-
       The N Series is quite neutral and provides resources for general purpose applications.
+
+      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.class: "General purpose"
 spec:
   cpu:
