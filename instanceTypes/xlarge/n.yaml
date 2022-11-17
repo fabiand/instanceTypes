@@ -6,4 +6,4 @@ spec:
   cpu:
     cores: 4
   memory:
-    guest: "8Gi"
+    guest: "16Gi"
