@@ -51,7 +51,7 @@ class Series:
                 colMaxLens[idx] = max(colMaxLens[idx], len(str(row[idx])))
 
         def formatRow(row):
-            return "  ".join(str(val).ljust(colMaxLens[idx]) for idx, val in enumerate(row))
+            return " | ".join(str(val).ljust(colMaxLens[idx]) for idx, val in enumerate(row))
 
         print(formatRow(hdr))
         print("-".join("" for _ in range(-1, len(formatRow(hdr)))))
