@@ -15,15 +15,15 @@ cx1.large  | 2     | 4Gi
 cx1.xlarge | 4     | 16Gi  
 
 
-# GN Series
-The GN Series provides instances types intended for VMs with NVIDIA
-GPU resources attached.
+# M Series
+The M Series provides resources for memory intensive applications.
 
 The following instance types are available in this series:
 
-Name       | Cores | Memory
------------|-------|-------
-gn1.xlarge | 4     | 16Gi  
+Name      | Cores | Memory
+----------|-------|-------
+m1.large  | 2     | 16Gi  
+m1.xlarge | 4     | 32Gi  
 
 
 # N Series
@@ -40,14 +40,14 @@ n1.large  | 2     | 8Gi
 n1.xlarge | 4     | 16Gi  
 
 
-# M Series
-The M Series provides resources for memory intensive applications.
+# GN Series
+The GN Series provides instances types intended for VMs with NVIDIA
+GPU resources attached.
 
 The following instance types are available in this series:
 
-Name      | Cores | Memory
-----------|-------|-------
-m1.large  | 2     | 16Gi  
-m1.xlarge | 4     | 32Gi  
+Name       | Cores | Memory
+-----------|-------|-------
+gn1.xlarge | 4     | 16Gi  
 
 
