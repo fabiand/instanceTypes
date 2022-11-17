@@ -129,11 +129,11 @@ metadata:
   name: gn1.2xlarge
 spec:
   cpu:
-    cores: 4
+    cores: 8
   gpus:
   - resourceName: nvidia.com/A400
   memory:
-    guest: 16Gi
+    guest: 32Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
@@ -146,11 +146,11 @@ metadata:
   name: gn1.4xlarge
 spec:
   cpu:
-    cores: 4
+    cores: 16
   gpus:
   - resourceName: nvidia.com/A400
   memory:
-    guest: 16Gi
+    guest: 64Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
@@ -163,11 +163,11 @@ metadata:
   name: gn1.8xlarge
 spec:
   cpu:
-    cores: 4
+    cores: 32
   gpus:
   - resourceName: nvidia.com/A400
   memory:
-    guest: 16Gi
+    guest: 128Gi
 ---
 apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstanceType
