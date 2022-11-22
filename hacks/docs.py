@@ -39,7 +39,7 @@ class Series:
 
     def instanceTypes(self):
         series = self
-        return list(filter(lambda i: i.series == series.name, (InstanceType.from_doc(doc) for doc in self._docs)))
+        return sorted(list(filter(lambda i: i.series == series.name, (InstanceType.from_doc(doc) for doc in self._docs))), key=lambda i: i.name)
 
     def __hash__(self):
         return hash(self.name)
@@ -52,7 +52,7 @@ class Seriess:
 
     def from_list(docs):
         s = Seriess()
-        s.items = set(Series.from_doc(d, docs) for d in docs)
+        s.items = sorted(list(set(Series.from_doc(d, docs) for d in docs)), key=lambda i: i.name)
         return s
 
 class MarkdownifySeriess:
