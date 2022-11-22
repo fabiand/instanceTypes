@@ -57,6 +57,8 @@ class Seriess:
 
 class MarkdownifySeriess:
     """Generate a markdown represenattion of our internal model
+
+    https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
     """
     seriess = None
 
