@@ -24,16 +24,16 @@ nwrkld(Workload agnostic)
 class wrkld grp
 
 wrkld:::grp --> Computeintensive:::series
-Computeintensive([Compute intensive]):::series --> cx:::instancetype
+Computeintensive([Compute intensive]):::series --> cx1:::instancetype
 
 wrkld:::grp --> GPU:::series
-GPU([GPU]):::series --> gn:::instancetype
+GPU([GPU]):::series --> gn1:::instancetype
 
 wrkld:::grp --> Memoryintensive:::series
-Memoryintensive([Memory intensive]):::series --> m:::instancetype
+Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 
 nwrkld:::grp --> Generalpurpose:::series
-Generalpurpose([General purpose]):::series --> n:::instancetype
+Generalpurpose([General purpose]):::series --> n1:::instancetype
 
 ```
 # CX Series

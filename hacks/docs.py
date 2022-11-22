@@ -11,6 +11,7 @@ def buildOne(doc, cols):
 class InstanceType:
     name = None
     series = None
+    seriesnv = None
     cores = None
     memory = None
 
@@ -18,6 +19,7 @@ class InstanceType:
         i = InstanceType()
         i.name = doc["metadata"]["name"]
         i.series = doc["metadata"]["annotations"]["series.name"]
+        i.seriesnv = doc["metadata"]["annotations"]["series.nv"]
         i.cores = doc["spec"]["cpu"]["cores"]
         i.memory = doc["spec"]["memory"]["guest"]
         return i
@@ -33,6 +35,7 @@ class Series:
         s = Series()
         s._docs = docs
         s.name = doc["metadata"]["annotations"]["series.name"]
+        s.nv = doc["metadata"]["annotations"]["series.nv"]
         s.cls = doc["metadata"]["annotations"]["series.class"]
         s.description = doc["metadata"]["annotations"]["series.description"]
         return s
@@ -99,7 +102,7 @@ class wrkld grp
                 out.append(f"nwrkld:::grp --> {nd}:::series")
             else:
                 out.append(f"wrkld:::grp --> {nd}:::series")
-            out.append(f"{nd}([{ndTxt}]):::series --> {s.name}:::instancetype")
+            out.append(f"{nd}([{ndTxt}]):::series --> {s.nv}:::instancetype")
             out.append("")
         out.append("```")
 

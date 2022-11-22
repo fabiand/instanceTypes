@@ -7,6 +7,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.2xlarge
 spec:
   blockMultiQueue: true
@@ -31,6 +32,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.4xlarge
 spec:
   blockMultiQueue: true
@@ -55,6 +57,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.8xlarge
 spec:
   blockMultiQueue: true
@@ -79,6 +82,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.large
 spec:
   blockMultiQueue: true
@@ -103,6 +107,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.medium
 spec:
   blockMultiQueue: true
@@ -127,6 +132,7 @@ metadata:
       The CX Series provides exclusive compute resources for compute intensive applications.
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
+    series.nv: cx1
   name: cx1.xlarge
 spec:
   blockMultiQueue: true
@@ -150,6 +156,7 @@ metadata:
     series.description: The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
     series.name: gn
+    series.nv: gn1
   name: gn1.2xlarge
 spec:
   cpu:
@@ -167,6 +174,7 @@ metadata:
     series.description: The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
     series.name: gn
+    series.nv: gn1
   name: gn1.4xlarge
 spec:
   cpu:
@@ -184,6 +192,7 @@ metadata:
     series.description: The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
     series.name: gn
+    series.nv: gn1
   name: gn1.8xlarge
 spec:
   cpu:
@@ -201,6 +210,7 @@ metadata:
     series.description: The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
     series.name: gn
+    series.nv: gn1
   name: gn1.xlarge
 spec:
   cpu:
@@ -217,6 +227,7 @@ metadata:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
     series.name: m
+    series.nv: m1
   name: m1.2xlarge
 spec:
   cpu:
@@ -235,6 +246,7 @@ metadata:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
     series.name: m
+    series.nv: m1
   name: m1.4xlarge
 spec:
   cpu:
@@ -253,6 +265,7 @@ metadata:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
     series.name: m
+    series.nv: m1
   name: m1.8xlarge
 spec:
   cpu:
@@ -271,6 +284,7 @@ metadata:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
     series.name: m
+    series.nv: m1
   name: m1.large
 spec:
   cpu:
@@ -289,6 +303,7 @@ metadata:
     series.class: Memory intensive
     series.description: The M Series provides resources for memory intensive applications.
     series.name: m
+    series.nv: m1
   name: m1.xlarge
 spec:
   cpu:
@@ -309,6 +324,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.2xlarge
 spec:
   cpu:
@@ -325,6 +341,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.4xlarge
 spec:
   cpu:
@@ -341,6 +358,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.8xlarge
 spec:
   cpu:
@@ -357,6 +375,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.large
 spec:
   cpu:
@@ -373,6 +392,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.medium
 spec:
   cpu:
@@ -389,6 +409,7 @@ metadata:
       The N Series is quite neutral and provides resources for general purpose applications.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
+    series.nv: n1
   name: n1.xlarge
 spec:
   cpu:
