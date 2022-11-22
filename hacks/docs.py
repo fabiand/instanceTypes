@@ -103,6 +103,7 @@ class wrkld grp
             else:
                 out.append(f"wrkld:::grp --> {nd}:::series")
             out.append(f"{nd}([{ndTxt}]):::series --> {s.nv}:::instancetype")
+            out.append(f"click {s.nv} \"#{s.name}-series\"")
             out.append("")
         out.append("```")
 
