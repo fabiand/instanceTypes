@@ -25,19 +25,15 @@ class wrkld grp
 
 wrkld:::grp --> Computeintensive:::series
 Computeintensive([Compute intensive]):::series --> cx1:::instancetype
-click cx1 "#cx-series"
 
 wrkld:::grp --> GPU:::series
 GPU([GPU]):::series --> gn1:::instancetype
-click gn1 "#gn-series"
 
 wrkld:::grp --> Memoryintensive:::series
 Memoryintensive([Memory intensive]):::series --> m1:::instancetype
-click m1 "#m-series"
 
 nwrkld:::grp --> Generalpurpose:::series
 Generalpurpose([General purpose]):::series --> n1:::instancetype
-click n1 "#n-series"
 
 ```
 # CX Series
