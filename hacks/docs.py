@@ -121,9 +121,11 @@ class wrkld grp
         out.append("\n".join(textwrap.wrap(s.description)))
         out.append("")
         out.append("### Characteristics")
+        out.append("")
         out.append(self.buildCharacteristics(s))
         out.append("")
         out.append("### Instance Types")
+        out.append("")
         out.append("The following instance types are available in this series:\n")
         out.append(self.buildSeriesInstanceTypesTable(s))
 
@@ -133,20 +135,24 @@ class wrkld grp
 
     def buildCharacteristics(self, s):
         knownPaths = [
-            (lambda d: d["spec"].get("dedicatedCpuPlacement", False) == True,
-             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
-            (lambda d: d["spec"].get("isolateEmulatorThread", False) == True,
-             "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
             (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
              "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
-            (lambda d: "guestMappingPassthrough" in d["spec"].get("numa", {}),
-             "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
             (lambda d: "networkInterfaceMultiQueue" in d["spec"],
              "Multiqueueing is used for vNICs in order to increase network performance"),
+            (lambda d: "blockMultiQueue" in d["spec"],
+             "Multiqueueing is used for disks in order to increase storage performance"),
+            (lambda d: "gpus" in d["spec"],
+             "Has GPUs predefined"),
+
             (lambda d: "hugepages" in d["spec"].get("memory", {}),
              "Hugepages are used in order to improve memory performance"),
-            (lambda d: "gpus" in d["spec"],
-             "Has GPUs predefined")
+
+            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCpuPlacement", False) == True,
+             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
+            (lambda d: d["spec"].get("cpu", {}).get("isolateEmulatorThread", False) == True,
+             "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
+            (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
+             "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
         ]
 
         out = set([])
@@ -160,8 +166,8 @@ class wrkld grp
                     raise
 
         if len(out) > 0:
-            return "Specific characteristics of this series are:" \
-                  + "\n".join("- " + l for l in out) + "\n"
+            return "Specific characteristics of this series are:\n" \
+                  + "\n".join("- " + l for l in out)
         else:
             return "This series has no specific characteristics."
 

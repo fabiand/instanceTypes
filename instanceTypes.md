@@ -48,11 +48,17 @@ addition, in this series, the NUMA topology of the used cores is
 provided to the VM.
 
 ### Characteristics
-Specific characteristics of this series are:- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
-- Multiqueueing is used for vNICs in order to increase network performance
 
+Specific characteristics of this series are:
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
+- Multiqueueing is used for vNICs in order to increase network performance
+- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
+- Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization
+- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
+- Multiqueueing is used for disks in order to increase storage performance
 
 ### Instance Types
+
 The following instance types are available in this series:
 
 Name        | Cores | Memory
@@ -71,10 +77,12 @@ The GN Series provides instances types intended for VMs with NVIDIA
 GPU resources attached.
 
 ### Characteristics
-Specific characteristics of this series are:- Has GPUs predefined
 
+Specific characteristics of this series are:
+- Has GPUs predefined
 
 ### Instance Types
+
 The following instance types are available in this series:
 
 Name        | Cores | Memory
@@ -90,12 +98,12 @@ gn1.8xlarge | 32    | 128Gi
 The M Series provides resources for memory intensive applications.
 
 ### Characteristics
-Specific characteristics of this series are:- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- Hugepages are used in order to improve memory performance
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 
+Specific characteristics of this series are:
+- Hugepages are used in order to improve memory performance
 
 ### Instance Types
+
 The following instance types are available in this series:
 
 Name       | Cores | Memory
@@ -114,9 +122,11 @@ purpose applications. VMs of instance types will share physical CPU
 cores on a time-slice basis with other VMs.
 
 ### Characteristics
+
 This series has no specific characteristics.
 
 ### Instance Types
+
 The following instance types are available in this series:
 
 Name       | Cores | Memory
