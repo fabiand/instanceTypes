@@ -53,9 +53,6 @@ Specific characteristics of this series are:- IO threads are isolated from the v
 
 
 ### Instance Types
-Specific characteristics of this series are:- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
-- Multiqueueing is used for vNICs in order to increase network performance
-
 The following instance types are available in this series:
 
 Name        | Cores | Memory
@@ -78,8 +75,6 @@ Specific characteristics of this series are:- Has GPUs predefined
 
 
 ### Instance Types
-Specific characteristics of this series are:- Has GPUs predefined
-
 The following instance types are available in this series:
 
 Name        | Cores | Memory
@@ -96,15 +91,11 @@ The M Series provides resources for memory intensive applications.
 
 ### Characteristics
 Specific characteristics of this series are:- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 - Hugepages are used in order to improve memory performance
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 
 
 ### Instance Types
-Specific characteristics of this series are:- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
-- Hugepages are used in order to improve memory performance
-
 The following instance types are available in this series:
 
 Name       | Cores | Memory
@@ -126,7 +117,6 @@ cores on a time-slice basis with other VMs.
 This series has no specific characteristics.
 
 ### Instance Types
-This series has no specific characteristics.
 The following instance types are available in this series:
 
 Name       | Cores | Memory

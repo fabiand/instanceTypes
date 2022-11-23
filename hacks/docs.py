@@ -124,7 +124,6 @@ class wrkld grp
         out.append(self.buildCharacteristics(s))
         out.append("")
         out.append("### Instance Types")
-        out.append(self.buildCharacteristics(s))
         out.append("The following instance types are available in this series:\n")
         out.append(self.buildSeriesInstanceTypesTable(s))
 
