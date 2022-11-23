@@ -22,6 +22,7 @@ class InstanceType:
         i.seriesnv = doc["metadata"]["annotations"]["series.nv"]
         i.cores = doc["spec"]["cpu"]["cores"]
         i.memory = doc["spec"]["memory"]["guest"]
+        i.doc = doc
         return i
 
 class Series:
@@ -29,7 +30,6 @@ class Series:
     name = None
     cls = None
     description = None
-    
 
     def from_doc(doc, docs):
         s = Series()
@@ -106,6 +106,7 @@ class wrkld grp
             out.append("")
         out.append("```")
 
+        out.append("# Series")
         for s in sorted(self.seriess.items, key=lambda i: i.name):
             out.append(self.buildSeries(s))
             out.append("")
@@ -115,15 +116,55 @@ class wrkld grp
     def buildSeries(self, s):
         out = []
 
-        out.append("# %s Series" % s.name.upper())
+        out.append("## %s Series" % s.name.upper())
+        out.append("")
         out.append("\n".join(textwrap.wrap(s.description)))
         out.append("")
+        out.append("### Characteristics")
+        out.append(self.buildCharacteristics(s))
+        out.append("")
+        out.append("### Instance Types")
+        out.append(self.buildCharacteristics(s))
         out.append("The following instance types are available in this series:\n")
         out.append(self.buildSeriesInstanceTypesTable(s))
 
         out.append("")
 
         return "\n".join(out)
+
+    def buildCharacteristics(self, s):
+        knownPaths = [
+            (lambda d: d["spec"].get("dedicatedCpuPlacement", False) == True,
+             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
+            (lambda d: d["spec"].get("isolateEmulatorThread", False) == True,
+             "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
+            (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
+             "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
+            (lambda d: "guestMappingPassthrough" in d["spec"].get("numa", {}),
+             "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
+            (lambda d: "networkInterfaceMultiQueue" in d["spec"],
+             "Multiqueueing is used for vNICs in order to increase network performance"),
+            (lambda d: "hugepages" in d["spec"].get("memory", {}),
+             "Hugepages are used in order to improve memory performance"),
+            (lambda d: "gpus" in d["spec"],
+             "Has GPUs predefined")
+        ]
+
+        out = set([])
+
+        for i in s.instanceTypes():
+            for pf, m in knownPaths:
+                try:
+                    if pf(i.doc):
+                        out.add(m)
+                except:
+                    raise
+
+        if len(out) > 0:
+            return "Specific characteristics of this series are:" \
+                  + "\n".join("- " + l for l in out) + "\n"
+        else:
+            return "This series has no specific characteristics."
 
     def buildSeriesInstanceTypesTable(self, s):
         hdr = ["Name", "Cores", "Memory"]

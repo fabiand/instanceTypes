@@ -36,7 +36,9 @@ nwrkld:::grp --> Generalpurpose:::series
 Generalpurpose([General purpose]):::series --> n1:::instancetype
 
 ```
-# CX Series
+# Series
+## CX Series
+
 The CX Series provides exclusive compute resources for compute
 intensive applications. The exclusive resources are given to the
 compute threads of the VM. In order to ensure this, some additional
@@ -44,6 +46,15 @@ cores (depending on the number of disks and NICs) will be requested to
 offload the IO threading from cores dedicated to the workload. In
 addition, in this series, the NUMA topology of the used cores is
 provided to the VM.
+
+### Characteristics
+Specific characteristics of this series are:- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
+- Multiqueueing is used for vNICs in order to increase network performance
+
+
+### Instance Types
+Specific characteristics of this series are:- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
+- Multiqueueing is used for vNICs in order to increase network performance
 
 The following instance types are available in this series:
 
@@ -57,9 +68,17 @@ cx1.4xlarge | 16    | 32Gi
 cx1.8xlarge | 32    | 64Gi  
 
 
-# GN Series
+## GN Series
+
 The GN Series provides instances types intended for VMs with NVIDIA
 GPU resources attached.
+
+### Characteristics
+Specific characteristics of this series are:- Has GPUs predefined
+
+
+### Instance Types
+Specific characteristics of this series are:- Has GPUs predefined
 
 The following instance types are available in this series:
 
@@ -71,8 +90,20 @@ gn1.4xlarge | 16    | 64Gi
 gn1.8xlarge | 32    | 128Gi 
 
 
-# M Series
+## M Series
+
 The M Series provides resources for memory intensive applications.
+
+### Characteristics
+Specific characteristics of this series are:- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
+- Hugepages are used in order to improve memory performance
+
+
+### Instance Types
+Specific characteristics of this series are:- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
+- Hugepages are used in order to improve memory performance
 
 The following instance types are available in this series:
 
@@ -85,11 +116,17 @@ m1.4xlarge | 16    | 128Gi
 m1.8xlarge | 32    | 256Gi 
 
 
-# N Series
+## N Series
+
 The N Series is quite neutral and provides resources for general
 purpose applications. VMs of instance types will share physical CPU
 cores on a time-slice basis with other VMs.
 
+### Characteristics
+This series has no specific characteristics.
+
+### Instance Types
+This series has no specific characteristics.
 The following instance types are available in this series:
 
 Name       | Cores | Memory
