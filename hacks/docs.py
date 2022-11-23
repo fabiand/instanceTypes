@@ -77,7 +77,7 @@ class MarkdownifySeriess:
 This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
 
 > **Note**
->  The instance types are provided by OpenShift by default, if not, then they can be easily build and 
+> These instance types are provided by OpenShift by default, if not, then they can be easily build and 
 > installed by running:
 >
 > ```
