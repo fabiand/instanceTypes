@@ -71,8 +71,19 @@ class MarkdownifySeriess:
     def build(self):
         out = []
 
-        out.append("# Overview")
         out.append("""
+# Introduction
+
+This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
+These instance types are provided by OpenShift by default, if not, then they can be easily installed by
+running:
+
+```
+$ kubectl apply -f instanceTypes.yaml
+```
+
+# Overview
+
 The available instance types are structured into two themes:
 
 1. General purpose

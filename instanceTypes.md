@@ -1,3 +1,14 @@
+
+# Introduction
+
+This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
+These instance types are provided by OpenShift by default, if not, then they can be easily installed by
+running:
+
+```
+$ kubectl apply -f instanceTypes.yaml
+```
+
 # Overview
 
 The available instance types are structured into two themes:
@@ -52,10 +63,10 @@ provided to the VM.
 Specific characteristics of this series are:
 - Multiqueueing is used for vNICs in order to increase network performance
 - Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
+- Multiqueueing is used for disks in order to increase storage performance
 - IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
 - Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- Multiqueueing is used for disks in order to increase storage performance
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 
 ### Instance Types
 
