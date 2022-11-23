@@ -51,11 +51,11 @@ provided to the VM.
 
 Specific characteristics of this series are:
 - Multiqueueing is used for vNICs in order to increase network performance
-- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 - Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization
 - IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
+- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
 - Multiqueueing is used for disks in order to increase storage performance
+- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
 
 ### Instance Types
 
@@ -75,8 +75,9 @@ cx1.8xlarge | 32    | 64Gi
 
 The GN Series provides instances types intended for VMs with NVIDIA
 GPU resources attached. This series is intended to be used with VMs
-consuming GPUs provided by the [NVIDIA GPU
-Operator](https://github.com/NVIDIA/gpu-operator).
+consuming GPUs provided by the  [NVIDIA GPU
+Operator](https://github.com/NVIDIA/gpu-operator) which is made
+available on OpenShift via OperatorHub.
 
 ### Characteristics
 
