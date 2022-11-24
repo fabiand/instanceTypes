@@ -8,6 +8,9 @@ metadata:
     series.nv: "m1"
     series.description: >-
       The M Series provides resources for memory intensive applications.
+
+      *M* is the abbreviation of "Memory".
+
     series.class: "Memory intensive"
 spec:
   memory:

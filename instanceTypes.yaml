@@ -5,6 +5,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -30,6 +31,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -55,6 +57,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -80,6 +83,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -105,6 +109,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -130,6 +135,7 @@ metadata:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute intensive applications.
+      *CX* is the abbreviation of "Compute Exclusive".
       The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
     series.name: cx
     series.nv: cx1
@@ -153,10 +159,10 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: GPU
-    series.description: The GN Series provides instances types intended for VMs with
-      NVIDIA GPU resources attached. This series is intended to be used with VMs consuming
-      GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
-      which is made available on OpenShift via OperatorHub.
+    series.description: |-
+      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      *GN* is the abbreviation of "GPU NVIDIA".
+      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.2xlarge
@@ -173,10 +179,10 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: GPU
-    series.description: The GN Series provides instances types intended for VMs with
-      NVIDIA GPU resources attached. This series is intended to be used with VMs consuming
-      GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
-      which is made available on OpenShift via OperatorHub.
+    series.description: |-
+      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      *GN* is the abbreviation of "GPU NVIDIA".
+      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.4xlarge
@@ -193,10 +199,10 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: GPU
-    series.description: The GN Series provides instances types intended for VMs with
-      NVIDIA GPU resources attached. This series is intended to be used with VMs consuming
-      GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
-      which is made available on OpenShift via OperatorHub.
+    series.description: |-
+      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      *GN* is the abbreviation of "GPU NVIDIA".
+      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.8xlarge
@@ -213,10 +219,10 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: GPU
-    series.description: The GN Series provides instances types intended for VMs with
-      NVIDIA GPU resources attached. This series is intended to be used with VMs consuming
-      GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
-      which is made available on OpenShift via OperatorHub.
+    series.description: |-
+      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      *GN* is the abbreviation of "GPU NVIDIA".
+      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.xlarge
@@ -233,7 +239,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Memory intensive
-    series.description: The M Series provides resources for memory intensive applications.
+    series.description: |-
+      The M Series provides resources for memory intensive applications.
+      *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
   name: m1.2xlarge
@@ -252,7 +260,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Memory intensive
-    series.description: The M Series provides resources for memory intensive applications.
+    series.description: |-
+      The M Series provides resources for memory intensive applications.
+      *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
   name: m1.4xlarge
@@ -271,7 +281,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Memory intensive
-    series.description: The M Series provides resources for memory intensive applications.
+    series.description: |-
+      The M Series provides resources for memory intensive applications.
+      *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
   name: m1.8xlarge
@@ -290,7 +302,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Memory intensive
-    series.description: The M Series provides resources for memory intensive applications.
+    series.description: |-
+      The M Series provides resources for memory intensive applications.
+      *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
   name: m1.large
@@ -309,7 +323,9 @@ kind: VirtualMachineInstanceType
 metadata:
   annotations:
     series.class: Memory intensive
-    series.description: The M Series provides resources for memory intensive applications.
+    series.description: |-
+      The M Series provides resources for memory intensive applications.
+      *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
   name: m1.xlarge
@@ -330,6 +346,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
@@ -347,6 +364,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
@@ -364,6 +382,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
@@ -381,6 +400,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
@@ -398,6 +418,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
@@ -415,6 +436,7 @@ metadata:
     series.class: General purpose
     series.description: |-
       The N Series is quite neutral and provides resources for general purpose applications.
+      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
       VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1

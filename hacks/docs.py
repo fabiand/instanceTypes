@@ -181,7 +181,7 @@ class wrkld grp
 
         if len(out) > 0:
             return "Specific characteristics of this series are:\n" \
-                  + "\n".join("- " + l for l in out)
+                  + "\n".join("- " + l for l in sorted(out))
         else:
             return "This series has no specific characteristics."
 
