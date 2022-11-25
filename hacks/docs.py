@@ -132,7 +132,7 @@ class wrkld grp
 
         out.append("## %s Series" % s.name.upper())
         out.append("")
-        out.append("\n".join(textwrap.wrap(s.description)))
+        out.append(s.description)
         out.append("")
         out.append("### Characteristics")
         out.append("")
@@ -181,7 +181,7 @@ class wrkld grp
 
         if len(out) > 0:
             return "Specific characteristics of this series are:\n" \
-                  + "\n".join("- " + l for l in sorted(out))
+                  + "\n".join("- " + "\n".join(textwrap.wrap(l, subsequent_indent="  ")) for l in sorted(out))
         else:
             return "This series has no specific characteristics."
 

@@ -4,9 +4,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.2xlarge
@@ -30,9 +38,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.4xlarge
@@ -56,9 +72,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.8xlarge
@@ -82,9 +106,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.large
@@ -108,9 +140,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.medium
@@ -134,9 +174,17 @@ metadata:
   annotations:
     series.class: Compute intensive
     series.description: |-
-      The CX Series provides exclusive compute resources for compute intensive applications.
+      The CX Series provides exclusive compute resources for compute
+      intensive applications.
+
       *CX* is the abbreviation of "Compute Exclusive".
-      The exclusive resources are given to the compute threads of the VM. In order to ensure this, some additional cores (depending on the number of disks and NICs) will be requested to offload the IO threading from cores dedicated to the workload. In addition, in this series, the NUMA topology of the used cores is provided to the VM.
+
+      The exclusive resources are given to the compute threads of the
+      VM. In order to ensure this, some additional cores (depending
+      on the number of disks and NICs) will be requestedto offload
+      the IO threading from cores dedicated to the workload.
+      In addition, in this series, the NUMA topology of the used
+      cores is provided to the VM.
     series.name: cx
     series.nv: cx1
   name: cx1.xlarge
@@ -162,7 +210,7 @@ metadata:
     series.description: |-
       The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.2xlarge
@@ -182,7 +230,7 @@ metadata:
     series.description: |-
       The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.4xlarge
@@ -202,7 +250,7 @@ metadata:
     series.description: |-
       The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.8xlarge
@@ -222,7 +270,7 @@ metadata:
     series.description: |-
       The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the  [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.xlarge

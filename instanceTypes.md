@@ -54,22 +54,32 @@ Generalpurpose([General purpose]):::series --> n1:::instancetype
 ## CX Series
 
 The CX Series provides exclusive compute resources for compute
-intensive applications. *CX* is the abbreviation of "Compute
-Exclusive". The exclusive resources are given to the compute threads
-of the VM. In order to ensure this, some additional cores (depending
-on the number of disks and NICs) will be requested to offload the IO
-threading from cores dedicated to the workload. In addition, in this
-series, the NUMA topology of the used cores is provided to the VM.
+intensive applications.
+
+*CX* is the abbreviation of "Compute Exclusive".
+
+The exclusive resources are given to the compute threads of the
+VM. In order to ensure this, some additional cores (depending
+on the number of disks and NICs) will be requestedto offload
+the IO threading from cores dedicated to the workload.
+In addition, in this series, the NUMA topology of the used
+cores is provided to the VM.
 
 ### Characteristics
 
 Specific characteristics of this series are:
-- Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload
-- Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload
-- IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload
-- Multiqueueing is used for disks in order to increase storage performance
-- Multiqueueing is used for vNICs in order to increase network performance
-- Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization
+- Dedicated physical cores are exclusively assigned to every vCPU in
+  order to provide high compute guarantees to the workload
+- Hypervisor emulator threads are isolated from the vCPUs in order to
+  reduce emaulation related impact on the workload
+- IO threads are isolated from the vCPUs in order to reduce IO related
+  impact on the workload
+- Multiqueueing is used for disks in order to increase storage
+  performance
+- Multiqueueing is used for vNICs in order to increase network
+  performance
+- Physical NUMA topology is reflected in the guest in order to optimize
+  guest sided cache utilization
 
 ### Instance Types
 
@@ -87,11 +97,9 @@ cx1.8xlarge | 32    | 64Gi
 
 ## GN Series
 
-The GN Series provides instances types intended for VMs with NVIDIA
-GPU resources attached. *GN* is the abbreviation of "GPU NVIDIA". This
-series is intended to be used with VMs consuming GPUs provided by the
-[NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is
-made available on OpenShift via OperatorHub.
+The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+*GN* is the abbreviation of "GPU NVIDIA".
+This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
 
 ### Characteristics
 
@@ -112,8 +120,8 @@ gn1.8xlarge | 32    | 128Gi
 
 ## M Series
 
-The M Series provides resources for memory intensive applications. *M*
-is the abbreviation of "Memory".
+The M Series provides resources for memory intensive applications.
+*M* is the abbreviation of "Memory".
 
 ### Characteristics
 
@@ -135,10 +143,9 @@ m1.8xlarge | 32    | 256Gi
 
 ## N Series
 
-The N Series is quite neutral and provides resources for general
-purpose applications. *N* is the abbreviation for "Neutral", hinting
-at the neutral attitude towards workloads. VMs of instance types will
-share physical CPU cores on a time-slice basis with other VMs.
+The N Series is quite neutral and provides resources for general purpose applications.
+*N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
+VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
 
 ### Characteristics
 
