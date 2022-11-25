@@ -16,7 +16,7 @@ This is the documentation for the instance types defined in [instanceTypes.yaml]
 
 The available instance types are structured into two themes:
 
-1. General purpose
+1. Workload agnostic - or general purpose
 2. Workload specific
 
 Instance Types of the first theme are a good starting point to run your workload.
