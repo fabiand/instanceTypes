@@ -127,16 +127,16 @@ class wrkld grp
 The schema of the instance types can be defined with
 
 ```ebnf
-instanceTypeName = seriesName , "." , tshirtsize;
+instanceTypeName = seriesName , "." , size;
 
-seriesName = ( class | resourceBoundClass ) , version;
+seriesName = ( class | vendorClass ) , version;
 
 class = "n" | "cx" | "m";
-resourceBoundClass = "g" , resourceVendorHint;
-resourceVendorHint = "n" | "i" | "a";
+vendorClass = "g" , vendorHint;
+vendorHint = "n" | "i" | "a";
 version = "1";
 
-tshirtsize = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
+size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ```
 """)
 

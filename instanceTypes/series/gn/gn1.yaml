@@ -6,7 +6,7 @@ metadata:
   annotations:
     series.name: "gn"
     series.nv: "gn1"
-    series.description: >-
+    series.description: |-
       The GN Series provides instances types intended for VMs with
       NVIDIA GPU resources attached.
 

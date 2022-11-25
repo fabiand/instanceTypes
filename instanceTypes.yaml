@@ -208,9 +208,14 @@ metadata:
   annotations:
     series.class: GPU
     series.description: |-
-      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+
+      This series is intended to be used with VMs consuming GPUs
+      provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+      which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.2xlarge
@@ -228,9 +233,14 @@ metadata:
   annotations:
     series.class: GPU
     series.description: |-
-      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+
+      This series is intended to be used with VMs consuming GPUs
+      provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+      which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.4xlarge
@@ -248,9 +258,14 @@ metadata:
   annotations:
     series.class: GPU
     series.description: |-
-      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+
+      This series is intended to be used with VMs consuming GPUs
+      provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+      which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.8xlarge
@@ -268,9 +283,14 @@ metadata:
   annotations:
     series.class: GPU
     series.description: |-
-      The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+      The GN Series provides instances types intended for VMs with
+      NVIDIA GPU resources attached.
+
       *GN* is the abbreviation of "GPU NVIDIA".
-      This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+
+      This series is intended to be used with VMs consuming GPUs
+      provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+      which is made available on OpenShift via OperatorHub.
     series.name: gn
     series.nv: gn1
   name: gn1.xlarge

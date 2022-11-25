@@ -56,16 +56,16 @@ Generalpurpose([General purpose]):::series --> n1:::instancetype
 The schema of the instance types can be defined with
 
 ```ebnf
-instanceTypeName = seriesName , "." , tshirtsize;
+instanceTypeName = seriesName , "." , size;
 
-seriesName = ( class | resourceBoundClass ) , version;
+seriesName = ( class | vendorClass ) , version;
 
 class = "n" | "cx" | "m";
-resourceBoundClass = "g" , resourceVendorHint;
-resourceVendorHint = "n" | "i" | "a";
+vendorClass = "g" , vendorHint;
+vendorHint = "n" | "i" | "a";
 version = "1";
 
-tshirtsize = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
+size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ```
 
 # Series
@@ -115,9 +115,14 @@ cx1.8xlarge | 32    | 64Gi
 
 ## GN Series
 
-The GN Series provides instances types intended for VMs with NVIDIA GPU resources attached.
+The GN Series provides instances types intended for VMs with
+NVIDIA GPU resources attached.
+
 *GN* is the abbreviation of "GPU NVIDIA".
-This series is intended to be used with VMs consuming GPUs provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator) which is made available on OpenShift via OperatorHub.
+
+This series is intended to be used with VMs consuming GPUs
+provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+which is made available on OpenShift via OperatorHub.
 
 ### Characteristics
 
