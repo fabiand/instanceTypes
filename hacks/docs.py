@@ -96,9 +96,27 @@ Instance Types of the first theme are a good starting point to run your workload
 Once you know more about the requirements of your workload, you can start choosing a
 specific instance type of the second class.
 
-The following diagram summarises the available instance types and the use-cases:
-""")
-        out.append("""
+## Schema
+
+The schema of the instance types can be defined with
+
+```ebnf
+instanceTypeName = seriesName , "." , tshirtsize;
+
+seriesName = ( class | resourceBoundClass ) , version;
+
+class = "n" | "cx" | "m";
+resourceBoundClass = "g" , resourceVendorHint;
+resourceVendorHint = "n" | "i" | "a";
+version = "1";
+
+tshirtsize = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
+```
+
+## InstanceType Tree
+
+The following diagram summarises the available instance types and their use-cases:
+
 ```mermaid
 graph TD
 
@@ -110,6 +128,7 @@ wrkld(Workload specific)
 nwrkld(Workload agnostic)
 class wrkld grp
 """)
+
         for s in sorted(self.seriess.items, key=lambda i: i.name):
             nd, ndTxt = (s.cls.replace(" ", ""), s.cls)
             if ndTxt == "General purpose":
@@ -118,7 +137,10 @@ class wrkld grp
                 out.append(f"wrkld:::grp --> {nd}:::series")
             out.append(f"{nd}([{ndTxt}]):::series --> {s.nv}:::instancetype")
             out.append("")
-        out.append("```")
+
+        out.append("""
+```
+""")
 
         out.append("# Series")
         for s in sorted(self.seriess.items, key=lambda i: i.name):

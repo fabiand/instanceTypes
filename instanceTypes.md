@@ -23,8 +23,26 @@ Instance Types of the first theme are a good starting point to run your workload
 Once you know more about the requirements of your workload, you can start choosing a
 specific instance type of the second class.
 
-The following diagram summarises the available instance types and the use-cases:
+## Schema
 
+The schema of the instance types can be defined with
+
+```ebnf
+instanceTypeName = seriesName , "." , tshirtsize;
+
+seriesName = ( class | resourceBoundClass ) , version;
+
+class = "n" | "cx" | "m";
+resourceBoundClass = "g" , resourceVendorHint;
+resourceVendorHint = "n" | "i" | "a";
+version = "1";
+
+tshirtsize = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
+```
+
+## InstanceType Tree
+
+The following diagram summarises the available instance types and their use-cases:
 
 ```mermaid
 graph TD
@@ -49,7 +67,9 @@ Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 nwrkld:::grp --> Generalpurpose:::series
 Generalpurpose([General purpose]):::series --> n1:::instancetype
 
+
 ```
+
 # Series
 ## CX Series
 
