@@ -6,7 +6,7 @@ metadata:
   annotations:
     series.name: "n"
     series.nv: "n1"
-    series.description: >-
+    series.description: |-
       The N Series is quite neutral and provides resources for
       general purpose applications.
 

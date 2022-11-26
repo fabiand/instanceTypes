@@ -6,7 +6,7 @@ metadata:
   annotations:
     series.name: "m"
     series.nv: "m1"
-    series.description: >-
+    series.description: |-
       The M Series provides resources for memory intensive
       applications.
 

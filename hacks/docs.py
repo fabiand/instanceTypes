@@ -77,15 +77,17 @@ class MarkdownifySeriess:
 This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
 
 > **Note**
-> These instance types are provided by OpenShift by default, if not, then they can be easily build and 
-> installed by running:
+> The follow instance types are provided by OpenShift by default.
+> They can be easily build and installed from source with:
 >
-> ```
+> ```bash session
 > $ kubectl kustomize > instanceTypes.yaml
 > $ kubectl apply -f instanceTypes.yaml
-> ``
+> ```
 
 # Overview
+
+## Structure
 
 The available instance types are structured into two themes:
 
@@ -122,9 +124,9 @@ class wrkld grp
         out.append("""
 ```
 
-## Schema
+### Schema
 
-The schema of the instance types can be defined with
+<details><summary>Click in order to view the instanceType names schema</summary>
 
 ```ebnf
 instanceTypeName = seriesName , "." , size;
@@ -138,6 +140,8 @@ version = "1";
 
 size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ```
+</details>
+
 """)
 
         out.append("# Series")

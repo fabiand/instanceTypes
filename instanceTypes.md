@@ -4,15 +4,17 @@
 This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
 
 > **Note**
-> These instance types are provided by OpenShift by default, if not, then they can be easily build and 
-> installed by running:
+> The follow instance types are provided by OpenShift by default.
+> They can be easily build and installed from source with:
 >
-> ```
+> ```bash session
 > $ kubectl kustomize > instanceTypes.yaml
 > $ kubectl apply -f instanceTypes.yaml
-> ``
+> ```
 
 # Overview
+
+## Structure
 
 The available instance types are structured into two themes:
 
@@ -51,9 +53,9 @@ Generalpurpose([General purpose]):::series --> n1:::instancetype
 
 ```
 
-## Schema
+### Schema
 
-The schema of the instance types can be defined with
+<details><summary>Click in order to view the instanceType names schema</summary>
 
 ```ebnf
 instanceTypeName = seriesName , "." , size;
@@ -67,6 +69,8 @@ version = "1";
 
 size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ```
+</details>
+
 
 # Series
 ## CX Series
@@ -143,7 +147,9 @@ gn1.8xlarge | 32    | 128Gi
 
 ## M Series
 
-The M Series provides resources for memory intensive applications.
+The M Series provides resources for memory intensive
+applications.
+
 *M* is the abbreviation of "Memory".
 
 ### Characteristics
@@ -166,9 +172,14 @@ m1.8xlarge | 32    | 256Gi
 
 ## N Series
 
-The N Series is quite neutral and provides resources for general purpose applications.
-*N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+The N Series is quite neutral and provides resources for
+general purpose applications.
+
+*N* is the abbreviation for "Neutral", hinting at the neutral
+attitude towards workloads.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
 
 ### Characteristics
 

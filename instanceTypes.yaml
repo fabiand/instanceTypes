@@ -308,7 +308,9 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: |-
-      The M Series provides resources for memory intensive applications.
+      The M Series provides resources for memory intensive
+      applications.
+
       *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
@@ -329,7 +331,9 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: |-
-      The M Series provides resources for memory intensive applications.
+      The M Series provides resources for memory intensive
+      applications.
+
       *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
@@ -350,7 +354,9 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: |-
-      The M Series provides resources for memory intensive applications.
+      The M Series provides resources for memory intensive
+      applications.
+
       *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
@@ -371,7 +377,9 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: |-
-      The M Series provides resources for memory intensive applications.
+      The M Series provides resources for memory intensive
+      applications.
+
       *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
@@ -392,7 +400,9 @@ metadata:
   annotations:
     series.class: Memory intensive
     series.description: |-
-      The M Series provides resources for memory intensive applications.
+      The M Series provides resources for memory intensive
+      applications.
+
       *M* is the abbreviation of "Memory".
     series.name: m
     series.nv: m1
@@ -413,9 +423,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.2xlarge
@@ -431,9 +446,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.4xlarge
@@ -449,9 +469,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.8xlarge
@@ -467,9 +492,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.large
@@ -485,9 +515,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.medium
@@ -503,9 +538,14 @@ metadata:
   annotations:
     series.class: General purpose
     series.description: |-
-      The N Series is quite neutral and provides resources for general purpose applications.
-      *N* is the abbreviation for "Neutral", hinting at the neutral attitude towards workloads.
-      VMs of instance types will share physical CPU cores on a time-slice basis with other VMs.
+      The N Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *N* is the abbreviation for "Neutral", hinting at the neutral
+      attitude towards workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
     series.name: "n"
     series.nv: n1
   name: n1.xlarge
