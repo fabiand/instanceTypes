@@ -13,7 +13,10 @@ metadata:
       *M* is the abbreviation of "Memory".
     series.class: "Memory intensive"
 spec:
+  cpu:
+    cores: 1
   memory:
+    guest: 1Gi
     hugepages:
       pageSize: "2Mi"
   dedicatedCpuPlacement: true

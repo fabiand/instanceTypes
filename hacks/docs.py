@@ -3,6 +3,7 @@
 import yaml
 import textwrap
 import io
+import re
 
 
 def buildOne(doc, cols):
@@ -172,7 +173,15 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
         return "\n".join(out)
 
     def buildCharacteristics(self, s):
+        def MemoryPerCore(d):
+            # We assume they are set
+            cores = d["spec"].get("cpu").get("cores")
+            mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
+            return int(mem) / int(cores)
+            
+
         knownPaths = [
+            # Tuple fmt (match-fn, on-match-human-message)
             (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
              "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
             (lambda d: "networkInterfaceMultiQueue" in d["spec"],
@@ -191,6 +200,9 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
              "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
             (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
              "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
+            (lambda d: MemoryPerCore(d) == 2, "A vCPU to Memory ratio of 1:2"),
+            (lambda d: MemoryPerCore(d) == 4, "A vCPU to Memory ratio of 1:4, for less noise per node"),
+            (lambda d: MemoryPerCore(d) == 8, "A vCPU to Memory ratio of 1:8, for much less noise per node"),
         ]
 
         out = set([])
@@ -204,10 +216,15 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                     raise
 
         if len(out) > 0:
-            return "Specific characteristics of this series are:\n" \
+            outTxt = "Specific characteristics of this series are:\n" \
                   + "\n".join("- " + "\n".join(textwrap.wrap(l, subsequent_indent="  ")) for l in sorted(out))
+
+            # Poor mans mandatory field checks
+            assert "Memory ratio" in outTxt, "Missing ration in: %s" % s.name
         else:
-            return "This series has no specific characteristics."
+            outTxt = "This series has no specific characteristics."
+
+        return outTxt
 
     def buildSeriesInstanceTypesTable(self, s):
         hdr = ["Name", "Cores", "Memory"]
