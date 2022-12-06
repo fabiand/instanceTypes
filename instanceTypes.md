@@ -90,7 +90,7 @@ cores is provided to the VM.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU to Memory ratio of 1:2
+- A vCPU-to-Memory ratio of 1:2
 - Dedicated physical cores are exclusively assigned to every vCPU in
   order to provide high compute guarantees to the workload
 - Hypervisor emulator threads are isolated from the vCPUs in order to
@@ -132,7 +132,7 @@ which is made available on OpenShift via OperatorHub.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU to Memory ratio of 1:4, for less noise per node
+- A vCPU-to-Memory ratio of 1:4, for less noise per node
 - Has GPUs predefined
 
 ### Instance Types
@@ -157,7 +157,7 @@ applications.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU to Memory ratio of 1:8, for much less noise per node
+- A vCPU-to-Memory ratio of 1:8, for much less noise per node
 - Hugepages are used in order to improve memory performance
 
 ### Instance Types
@@ -187,7 +187,7 @@ time-slice basis with other VMs.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU to Memory ratio of 1:4, for less noise per node
+- A vCPU-to-Memory ratio of 1:4, for less noise per node
 
 ### Instance Types
 

@@ -200,9 +200,9 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
              "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
             (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
              "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
-            (lambda d: MemoryPerCore(d) == 2, "A vCPU to Memory ratio of 1:2"),
-            (lambda d: MemoryPerCore(d) == 4, "A vCPU to Memory ratio of 1:4, for less noise per node"),
-            (lambda d: MemoryPerCore(d) == 8, "A vCPU to Memory ratio of 1:8, for much less noise per node"),
+            (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
+            (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
+            (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
         ]
 
         out = set([])
