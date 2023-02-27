@@ -3,7 +3,7 @@ RESOURCES := $(shell find instanceTypes -print)
 
 .PHONY: $(RESOURCES)
 
-all: instanceTypes.yaml instanceTypes.md
+all: instanceTypes.yaml README.md
 
 instanceTypes.yaml: $(RESOURCES)
 	kubectl kustomize instanceTypes > $@
