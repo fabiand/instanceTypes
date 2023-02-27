@@ -8,5 +8,5 @@ all: instanceTypes.yaml instanceTypes.md
 instanceTypes.yaml: $(RESOURCES)
 	kubectl kustomize instanceTypes > $@
 
-instanceTypes.md: instanceTypes.yaml
+README.md: instanceTypes.yaml
 	python3 hacks/docs.py > $@

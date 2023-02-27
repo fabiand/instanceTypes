@@ -75,6 +75,9 @@ class MarkdownifySeriess:
         out.append("""
 # Introduction
 
+> **Note**
+> Learn how to build in the [BUILD.md](BUILD.md) file.
+
 This is the documentation for the instance types defined in [instanceTypes.yaml](instanceTypes.yaml).
 
 > **Note**

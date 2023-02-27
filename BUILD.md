@@ -1,7 +1,3 @@
-This repository contains a list of instances type commonly used.
-
-To learn about them, visit [instanceTypes.md](instanceTypes.md).
-
 To build them, run
 
 ```
