@@ -6,6 +6,9 @@ import io
 import re
 
 
+def is_valid_instancetype_name(s):
+    return bool(re.match("^((n|cx|m)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
+
 def buildOne(doc, cols):
     return [f(doc) for f in cols]
 
@@ -19,6 +22,7 @@ class InstanceType:
     def from_doc(doc):
         i = InstanceType()
         i.name = doc["metadata"]["name"]
+        assert is_valid_instancetype_name(i.name), f"{i.name} is invalid"
         i.series = doc["metadata"]["annotations"]["series.name"]
         i.seriesnv = doc["metadata"]["annotations"]["series.nv"]
         i.cores = doc["spec"]["cpu"]["guest"]
