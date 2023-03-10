@@ -22,9 +22,9 @@ metadata:
     series.class: "Compute intensive"
 spec:
   cpu:
+    dedicatedCpuPlacement: true
     ioThreadsPolicy: "auto"
     isolateEmulatorThread: true
-    dedicatedCpuPlacement: true
     numa:
       guestMappingPassthrough: {}
   networkInterfaceMultiQueue: true

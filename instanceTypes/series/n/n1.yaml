@@ -19,6 +19,6 @@ metadata:
     series.class: "General purpose"
 spec:
   cpu:
-    cores: 1
+    guest: 1
   memory:
     guest: 1Gi

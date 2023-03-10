@@ -4,6 +4,6 @@ metadata:
   name: "m"
 spec:
   cpu:
-    cores: 8
+    guest: 8
   memory:
     guest: "64Gi"
