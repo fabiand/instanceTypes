@@ -79,12 +79,9 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 .                           |  CX   |  GN   |  M    |  N
 ----------------------------|-------|-------|-------|------
-*Dedicated IO Threads*      |       |       |       |
-*vNIC Multi-Queue*          |       |       |       |
-*Block Multi-Queue*         |       |       |       |
 *Has GPUs*                  |       |  :x:  |       |
 *Hugepages*                 |       |       |  :x:  |
-*Dedicated CPUs*            |       |       |       |
+*Dedicated CPUs*            |  :x:  |       |       |
 *Isolated emulator threads* |  :x:  |       |       |
 *vNUMA*                     |  :x:  |       |       |
 *vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:8
@@ -106,6 +103,9 @@ cores is provided to the VM.
 ### CX Characteristics
 
 Specific characteristics of this series are:
+- *Dedicated CPUs* - Dedicated physical cores are exclusively assigned
+  to every vCPU in order to provide high compute guarantees to the
+  workload
 - *Isolated emulator threads* - Hypervisor emulator threads are isolated
   from the vCPUs in order to reduce emaulation related impact on the
   workload

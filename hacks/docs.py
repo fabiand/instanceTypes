@@ -200,6 +200,12 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                             rows[c][s] = " :x: "
                     except:
                         raise
+
+        # Remove non-present characteristics
+        for c, row in dict(rows).items():
+            if len("".join(row.values()).strip()) == 0:
+                del rows[c]
+
         # postprocess for numerics
         for c, row in dict(rows).items():
             m = re.search("(.*)\s+\((.*)\)", c)
@@ -209,6 +215,8 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                     if v == " :x: ":
                         rows[m.group(1)][s] = " %s " % m.group(2).rjust(2)
                 del rows[c]
+
+        # highlight charecteristic titles
         rows = [[f"*{c}*"] + list(r.values()) for c, r in rows.items()]
 
         return buildMarkdownTable(hdr, rows)
@@ -241,7 +249,7 @@ def characteristics():
              "Hugepages are used in order to improve memory performance"),
 
         "Dedicated CPUs":
-            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCpuPlacement", False) == True,
+            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
              "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
         "Isolated emulator threads":
             (lambda d: d["spec"].get("cpu", {}).get("isolateEmulatorThread", False) == True,
