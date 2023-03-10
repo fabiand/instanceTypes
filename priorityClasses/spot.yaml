@@ -1,0 +1,11 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: spot
+value: "-1000"
+globalDefault: false
+description: |-
+  Spot instance have a lower priority than other workloads, and are
+  thus more likley to be cluster or kubelet evicted.
+
+  https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/

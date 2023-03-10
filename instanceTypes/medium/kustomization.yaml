@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - ../series/cx
 - ../series/n
+- ../series/na
 
 nameSuffix: .medium
 
@@ -11,6 +12,9 @@ patches:
 - path: n.yaml
   target:
       name: "n1"
+- path: n.yaml
+  target:
+      name: "na1"
 - path: cx.yaml
   target:
       name: "cx1"

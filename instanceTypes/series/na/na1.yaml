@@ -1,0 +1,25 @@
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  name: "na1"
+  annotations:
+    series.name: "na"
+    series.name_expanded: "Neutral & Altruistic"
+    series.nv: "na1"
+    series.description: |-
+      The NA Series is based on the N Series. The only difference
+      is the use of the `spot` priority class in order to provide
+      a spot instance like usability..
+      An NA instance will be preemptively evicted in case of cluster
+      or node resource constratiints (as defined by Kubernetes
+      Pod Priorities) in favor of higher prioritized workloads.
+
+      Any instance type can be run with the `spot` priority class,
+      this class is provided for convenience.
+
+      *NA* is the abbreviation for "Neutral & Altruistic", hinting at
+      the relationship to the N Series and the included altruistic
+      behavior.
+    series.class: "General purpose"
+spec:
+  priorityClassName: spot
