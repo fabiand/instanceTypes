@@ -76,6 +76,19 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 
 # Series
+
+.                           |  CX   |  GN   |  M    |  N
+----------------------------|-------|-------|-------|------
+*Dedicated IO Threads*      |  :x:  |       |       |
+*Multi-Queue for vNICs*     |  :x:  |       |       |
+*Multi-Queue for block*     |  :x:  |       |       |
+*Has GPUs*                  |       |  :x:  |       |
+*Hugepages*                 |       |       |  :x:  |
+*Dedicated CPUs*            |  :x:  |       |       |
+*Isolated emulator threads* |  :x:  |       |       |
+*vNUMA*                     |  :x:  |       |       |
+*vCPU-To-Memory Ratio*      |   2   |   4   |   4   |   8
+
 ## CX Series
 
 The CX Series provides exclusive compute resources for compute
@@ -93,19 +106,21 @@ cores is provided to the VM.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU-to-Memory ratio of 1:2
-- Dedicated physical cores are exclusively assigned to every vCPU in
-  order to provide high compute guarantees to the workload
-- Hypervisor emulator threads are isolated from the vCPUs in order to
-  reduce emaulation related impact on the workload
-- IO threads are isolated from the vCPUs in order to reduce IO related
-  impact on the workload
-- Multiqueueing is used for disks in order to increase storage
-  performance
-- Multiqueueing is used for vNICs in order to increase network
-  performance
-- Physical NUMA topology is reflected in the guest in order to optimize
-  guest sided cache utilization
+- *Dedicated CPUs* - Dedicated physical cores are exclusively assigned
+  to every vCPU in order to provide high compute guarantees to the
+  workload
+- *Dedicated IO Threads* - IO threads are isolated from the vCPUs in
+  order to reduce IO related impact on the workload
+- *Isolated emulator threads* - Hypervisor emulator threads are isolated
+  from the vCPUs in order to reduce emaulation related impact on the
+  workload
+- *Multi-Queue for block* - Multiqueueing is used for disks in order to
+  increase storage performance
+- *Multi-Queue for vNICs* - Multiqueueing is used for vNICs in order to
+  increase network performance
+- *vCPU-To-Memory Ratio 2* - A vCPU-to-Memory ratio of 1:2
+- *vNUMA* - Physical NUMA topology is reflected in the guest in order to
+  optimize guest sided cache utilization
 
 ### Instance Types
 
@@ -113,12 +128,12 @@ The following instance types are available in this series:
 
 Name        | Cores | Memory
 ------------|-------|-------
-cx1.medium  | 1     | 2Gi   
-cx1.large   | 2     | 4Gi   
-cx1.xlarge  | 4     | 8Gi   
-cx1.2xlarge | 8     | 16Gi  
-cx1.4xlarge | 16    | 32Gi  
-cx1.8xlarge | 32    | 64Gi  
+cx1.medium  | 1     | 2Gi
+cx1.large   | 2     | 4Gi
+cx1.xlarge  | 4     | 8Gi
+cx1.2xlarge | 8     | 16Gi
+cx1.4xlarge | 16    | 32Gi
+cx1.8xlarge | 32    | 64Gi
 
 
 ## GN Series
@@ -135,8 +150,9 @@ which is made available on OpenShift via OperatorHub.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU-to-Memory ratio of 1:4, for less noise per node
-- Has GPUs predefined
+- *Has GPUs* - Has GPUs predefined
+- *vCPU-To-Memory Ratio 4* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
 
 ### Instance Types
 
@@ -144,10 +160,10 @@ The following instance types are available in this series:
 
 Name        | Cores | Memory
 ------------|-------|-------
-gn1.xlarge  | 4     | 16Gi  
-gn1.2xlarge | 8     | 32Gi  
-gn1.4xlarge | 16    | 64Gi  
-gn1.8xlarge | 32    | 128Gi 
+gn1.xlarge  | 4     | 16Gi
+gn1.2xlarge | 8     | 32Gi
+gn1.4xlarge | 16    | 64Gi
+gn1.8xlarge | 32    | 128Gi
 
 
 ## M Series
@@ -160,8 +176,10 @@ applications.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU-to-Memory ratio of 1:8, for much less noise per node
-- Hugepages are used in order to improve memory performance
+- *Hugepages* - Hugepages are used in order to improve memory
+  performance
+- *vCPU-To-Memory Ratio 8* - A vCPU-to-Memory ratio of 1:8, for much
+  less noise per node
 
 ### Instance Types
 
@@ -169,11 +187,11 @@ The following instance types are available in this series:
 
 Name       | Cores | Memory
 -----------|-------|-------
-m1.large   | 2     | 16Gi  
-m1.xlarge  | 4     | 32Gi  
-m1.2xlarge | 8     | 64Gi  
-m1.4xlarge | 16    | 128Gi 
-m1.8xlarge | 32    | 256Gi 
+m1.large   | 2     | 16Gi
+m1.xlarge  | 4     | 32Gi
+m1.2xlarge | 8     | 64Gi
+m1.4xlarge | 16    | 128Gi
+m1.8xlarge | 32    | 256Gi
 
 
 ## N Series
@@ -190,7 +208,8 @@ time-slice basis with other VMs.
 ### Characteristics
 
 Specific characteristics of this series are:
-- A vCPU-to-Memory ratio of 1:4, for less noise per node
+- *vCPU-To-Memory Ratio 4* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
 
 ### Instance Types
 
@@ -198,11 +217,11 @@ The following instance types are available in this series:
 
 Name       | Cores | Memory
 -----------|-------|-------
-n1.medium  | 1     | 4Gi   
-n1.large   | 2     | 8Gi   
-n1.xlarge  | 4     | 16Gi  
-n1.2xlarge | 8     | 32Gi  
-n1.4xlarge | 16    | 64Gi  
-n1.8xlarge | 32    | 128Gi 
+n1.medium  | 1     | 4Gi
+n1.large   | 2     | 8Gi
+n1.xlarge  | 4     | 16Gi
+n1.2xlarge | 8     | 32Gi
+n1.4xlarge | 16    | 64Gi
+n1.8xlarge | 32    | 128Gi
 
 

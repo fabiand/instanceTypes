@@ -29,6 +29,7 @@ class InstanceType:
 class Series:
     _docs = None
     name = None
+    name_expanded = None
     cls = None
     description = None
 
@@ -36,9 +37,11 @@ class Series:
         s = Series()
         s._docs = docs
         s.name = doc["metadata"]["annotations"]["series.name"]
+        s.name_expanded = doc["metadata"]["annotations"]["series.name_expanded"]
         s.nv = doc["metadata"]["annotations"]["series.nv"]
         s.cls = doc["metadata"]["annotations"]["series.class"]
         s.description = doc["metadata"]["annotations"]["series.description"]
+        s.doc = doc
         return s
 
     def instanceTypes(self):
@@ -58,6 +61,23 @@ class Seriess:
         s = Seriess()
         s.items = sorted(list(set(Series.from_doc(d, docs) for d in docs)), key=lambda i: i.name)
         return s
+
+def buildMarkdownTable(hdr, rows):
+    colMaxLens = [-1 for _ in range(0, len(rows[0]))]
+    for row in [hdr] + rows:
+        for idx, val in enumerate(row):
+            colMaxLens[idx] = max(colMaxLens[idx], len(str(row[idx])))
+
+    def formatRow(row):
+        return " | ".join(str(val).ljust(colMaxLens[idx]) for idx, val in enumerate(row)).rstrip()
+
+    out = []
+    out.append(formatRow(hdr))
+    out.append(formatRow("-" * colMaxLens[idx] for idx,_ in enumerate(hdr)).replace(" ", "-"))
+    for row in rows:
+        out.append(formatRow(row))
+
+    return "\n".join(out)
 
 class MarkdownifySeriess:
     """Generate a markdown represenattion of our internal model
@@ -148,14 +168,104 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 """)
 
-        out.append("# Series")
+        out.append("# Series\n")
+        out.append(self.buildSeriesComparisonTable())
+        out.append("")
+
         for s in sorted(self.seriess.items, key=lambda i: i.name):
-            out.append(self.buildSeries(s))
+            out.append(MarkdownifySeries(s).build())
             out.append("")
 
         return "\n".join(out)
 
-    def buildSeries(self, s):
+    def __str__(self):
+        return self.build()
+
+    def print(self):
+        print(self)
+
+    def buildSeriesComparisonTable(self):
+        cha = characteristics()
+
+        hdr = ["."] + [" %s " % s.name.upper() for s in self.seriess.items]
+
+        rows = {}
+        for c in cha.keys():
+            rows[c] = {}
+            for s in self.seriess.items:
+                for i in s.instanceTypes():
+                    rows[c].setdefault(s, "     ")
+                    try:
+                        if cha[c][0](i.doc):
+                            rows[c][s] = " :x: "
+                    except:
+                        raise
+        # postprocess for numerics
+        for c, row in dict(rows).items():
+            m = re.search("(.*)\s+(\d+)", c)
+            if m:
+                rows.setdefault(m.group(1), {})
+                for s, v in row.items():
+                    if v == " :x: ":
+                        rows[m.group(1)][s] = " %s " % m.group(2).rjust(2)
+                del rows[c]
+        rows = [[f"*{c}*"] + list(r.values()) for c, r in rows.items()]
+
+        return buildMarkdownTable(hdr, rows)
+
+
+def characteristics():
+    def MemoryPerCore(d):
+        # We assume they are set
+        cores = d["spec"].get("cpu").get("cores")
+        mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
+        return int(mem) / int(cores)
+
+    knownPaths = {
+        # Tuple fmt (match-fn, on-match-human-message)
+        "Dedicated IO Threads":
+            (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
+             "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
+        "Multi-Queue for vNICs":
+            (lambda d: "networkInterfaceMultiQueue" in d["spec"],
+             "Multiqueueing is used for vNICs in order to increase network performance"),
+        "Multi-Queue for block":
+            (lambda d: "blockMultiQueue" in d["spec"],
+             "Multiqueueing is used for disks in order to increase storage performance"),
+        "Has GPUs":
+            (lambda d: "gpus" in d["spec"],
+             "Has GPUs predefined"),
+
+        "Hugepages":
+            (lambda d: "hugepages" in d["spec"].get("memory", {}),
+             "Hugepages are used in order to improve memory performance"),
+
+        "Dedicated CPUs":
+            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCpuPlacement", False) == True,
+             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
+        "Isolated emulator threads":
+            (lambda d: d["spec"].get("cpu", {}).get("isolateEmulatorThread", False) == True,
+             "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
+        "vNUMA":
+            (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
+             "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
+        "vCPU-To-Memory Ratio 2":
+            (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
+        "vCPU-To-Memory Ratio 4":
+            (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
+        "vCPU-To-Memory Ratio 8":
+            (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
+    }
+
+    return knownPaths
+
+class MarkdownifySeries:
+    def __init__(self, series):
+        self.series = series
+
+    def build(self):
+        s = self.series
+
         out = []
 
         out.append("## %s Series" % s.name.upper())
@@ -164,7 +274,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
         out.append("")
         out.append("### Characteristics")
         out.append("")
-        out.append(self.buildCharacteristics(s))
+        out.append(self.buildCharacteristicsList(s))
         out.append("")
         out.append("### Instance Types")
         out.append("")
@@ -175,46 +285,16 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
         return "\n".join(out)
 
-    def buildCharacteristics(self, s):
-        def MemoryPerCore(d):
-            # We assume they are set
-            cores = d["spec"].get("cpu").get("cores")
-            mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
-            return int(mem) / int(cores)
-            
-
-        knownPaths = [
-            # Tuple fmt (match-fn, on-match-human-message)
-            (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
-             "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
-            (lambda d: "networkInterfaceMultiQueue" in d["spec"],
-             "Multiqueueing is used for vNICs in order to increase network performance"),
-            (lambda d: "blockMultiQueue" in d["spec"],
-             "Multiqueueing is used for disks in order to increase storage performance"),
-            (lambda d: "gpus" in d["spec"],
-             "Has GPUs predefined"),
-
-            (lambda d: "hugepages" in d["spec"].get("memory", {}),
-             "Hugepages are used in order to improve memory performance"),
-
-            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCpuPlacement", False) == True,
-             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
-            (lambda d: d["spec"].get("cpu", {}).get("isolateEmulatorThread", False) == True,
-             "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
-            (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
-             "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
-            (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
-            (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
-            (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
-        ]
+    def buildCharacteristicsList(self, s):
+        knownPaths = characteristics()
 
         out = set([])
 
         for i in s.instanceTypes():
-            for pf, m in knownPaths:
+            for (t, (pf, m)) in knownPaths.items():
                 try:
                     if pf(i.doc):
-                        out.add(m)
+                        out.add(f"*{t}* - {m}")
                 except:
                     raise
 
@@ -235,28 +315,10 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
         # Fix natural sort for GiB
         rows = sorted([[i.name, i.cores, i.memory] for i in s.instanceTypes()], key=lambda e: (e[1], e[2]))
 
-        colMaxLens = [-1 for _ in range(0, len(rows[0]))]
-        for row in [hdr] + rows:
-            for idx, val in enumerate(row):
-                colMaxLens[idx] = max(colMaxLens[idx], len(str(row[idx])))
-
-        def formatRow(row):
-            return " | ".join(str(val).ljust(colMaxLens[idx]) for idx, val in enumerate(row))
-
         out = []
-
-        out.append(formatRow(hdr))
-        out.append(formatRow("-" * colMaxLens[idx] for idx,_ in enumerate(hdr)).replace(" ", "-"))
-        for row in rows:
-            out.append(formatRow(row))
+        out.append(buildMarkdownTable(hdr, rows))
 
         return "\n".join(out)
-
-    def __str__(self):
-        return self.build()
-
-    def print(self):
-        print(self)
 
 
 def dumpAll(g):

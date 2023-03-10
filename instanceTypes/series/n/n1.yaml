@@ -5,6 +5,7 @@ metadata:
   name: "n1"
   annotations:
     series.name: "n"
+    series.name_expanded: "Neutral"
     series.nv: "n1"
     series.description: |-
       The N Series is quite neutral and provides resources for

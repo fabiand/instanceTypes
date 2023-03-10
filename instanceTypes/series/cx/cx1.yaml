@@ -5,6 +5,7 @@ metadata:
   name: "cx1"
   annotations:
     series.name: "cx"
+    series.name_expanded: "Compute Exclusive"
     series.nv: "cx1"
     series.description: |-
       The CX Series provides exclusive compute resources for compute

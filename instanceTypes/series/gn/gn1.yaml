@@ -5,6 +5,7 @@ metadata:
   name: "gn1"
   annotations:
     series.name: "gn"
+    series.name_expanded: "GPU NVIDIA"
     series.nv: "gn1"
     series.description: |-
       The GN Series provides instances types intended for VMs with

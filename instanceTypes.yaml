@@ -16,6 +16,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.2xlarge
 spec:
@@ -50,6 +51,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.4xlarge
 spec:
@@ -84,6 +86,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.8xlarge
 spec:
@@ -118,6 +121,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.large
 spec:
@@ -152,6 +156,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.medium
 spec:
@@ -186,6 +191,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.name: cx
+    series.name_expanded: Compute Exclusive
     series.nv: cx1
   name: cx1.xlarge
 spec:
@@ -217,6 +223,7 @@ metadata:
       provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
       which is made available on OpenShift via OperatorHub.
     series.name: gn
+    series.name_expanded: GPU NVIDIA
     series.nv: gn1
   name: gn1.2xlarge
 spec:
@@ -242,6 +249,7 @@ metadata:
       provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
       which is made available on OpenShift via OperatorHub.
     series.name: gn
+    series.name_expanded: GPU NVIDIA
     series.nv: gn1
   name: gn1.4xlarge
 spec:
@@ -267,6 +275,7 @@ metadata:
       provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
       which is made available on OpenShift via OperatorHub.
     series.name: gn
+    series.name_expanded: GPU NVIDIA
     series.nv: gn1
   name: gn1.8xlarge
 spec:
@@ -292,6 +301,7 @@ metadata:
       provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
       which is made available on OpenShift via OperatorHub.
     series.name: gn
+    series.name_expanded: GPU NVIDIA
     series.nv: gn1
   name: gn1.xlarge
 spec:
@@ -313,6 +323,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.name: m
+    series.name_expanded: Memory
     series.nv: m1
   name: m1.2xlarge
 spec:
@@ -336,6 +347,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.name: m
+    series.name_expanded: Memory
     series.nv: m1
   name: m1.4xlarge
 spec:
@@ -359,6 +371,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.name: m
+    series.name_expanded: Memory
     series.nv: m1
   name: m1.8xlarge
 spec:
@@ -382,6 +395,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.name: m
+    series.name_expanded: Memory
     series.nv: m1
   name: m1.large
 spec:
@@ -405,6 +419,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.name: m
+    series.name_expanded: Memory
     series.nv: m1
   name: m1.xlarge
 spec:
@@ -432,6 +447,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.2xlarge
 spec:
@@ -455,6 +471,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.4xlarge
 spec:
@@ -478,6 +495,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.8xlarge
 spec:
@@ -501,6 +519,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.large
 spec:
@@ -524,6 +543,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.medium
 spec:
@@ -547,6 +567,7 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.name: "n"
+    series.name_expanded: Neutral
     series.nv: n1
   name: n1.xlarge
 spec:
