@@ -265,18 +265,19 @@ class MarkdownifySeries:
 
     def build(self):
         s = self.series
+        nU = s.name.upper()
 
         out = []
 
-        out.append("## %s Series" % s.name.upper())
+        out.append(f"## {nU} Series")
         out.append("")
         out.append(s.description)
         out.append("")
-        out.append("### Characteristics")
+        out.append(f"### {nU} Characteristics")
         out.append("")
         out.append(self.buildCharacteristicsList(s))
         out.append("")
-        out.append("### Instance Types")
+        out.append(f"### {nU} Instance Types")
         out.append("")
         out.append("The following instance types are available in this series:\n")
         out.append(self.buildSeriesInstanceTypesTable(s))

@@ -103,7 +103,7 @@ the IO threading from cores dedicated to the workload.
 In addition, in this series, the NUMA topology of the used
 cores is provided to the VM.
 
-### Characteristics
+### CX Characteristics
 
 Specific characteristics of this series are:
 - *Dedicated CPUs* - Dedicated physical cores are exclusively assigned
@@ -122,7 +122,7 @@ Specific characteristics of this series are:
 - *vNUMA* - Physical NUMA topology is reflected in the guest in order to
   optimize guest sided cache utilization
 
-### Instance Types
+### CX Instance Types
 
 The following instance types are available in this series:
 
@@ -147,14 +147,14 @@ This series is intended to be used with VMs consuming GPUs
 provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
 which is made available on OpenShift via OperatorHub.
 
-### Characteristics
+### GN Characteristics
 
 Specific characteristics of this series are:
 - *Has GPUs* - Has GPUs predefined
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### Instance Types
+### GN Instance Types
 
 The following instance types are available in this series:
 
@@ -173,7 +173,7 @@ applications.
 
 *M* is the abbreviation of "Memory".
 
-### Characteristics
+### M Characteristics
 
 Specific characteristics of this series are:
 - *Hugepages* - Hugepages are used in order to improve memory
@@ -181,7 +181,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:8)* - A vCPU-to-Memory ratio of 1:8, for much
   less noise per node
 
-### Instance Types
+### M Instance Types
 
 The following instance types are available in this series:
 
@@ -205,13 +205,13 @@ attitude towards workloads.
 VMs of instance types will share physical CPU cores on a
 time-slice basis with other VMs.
 
-### Characteristics
+### N Characteristics
 
 Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### Instance Types
+### N Instance Types
 
 The following instance types are available in this series:
 
