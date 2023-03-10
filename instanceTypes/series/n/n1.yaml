@@ -1,6 +1,6 @@
 # https://aws.amazon.com/ec2/instance-types/#General_Purpose
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   name: "n1"
   annotations:
@@ -21,4 +21,4 @@ spec:
   cpu:
     guest: 1
   memory:
-    guest: 1Gi
+    guest: "1Gi"

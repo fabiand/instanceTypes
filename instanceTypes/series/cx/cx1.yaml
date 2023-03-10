@@ -1,6 +1,6 @@
 # https://aws.amazon.com/ec2/instance-types/#Compute_Optimized
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   name: "cx1"
   annotations:
@@ -22,11 +22,11 @@ metadata:
     series.class: "Compute intensive"
 spec:
   cpu:
-    dedicatedCpuPlacement: true
-    ioThreadsPolicy: "auto"
+    dedicatedCPUPlacement: true
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  networkInterfaceMultiQueue: true
-  blockMultiQueue: true
-  dedicatedIOThread: true
+  ioThreadsPolicy: "auto"
+  #networkInterfaceMultiQueue: true
+  #blockMultiQueue: true
+  #dedicatedIOThread: true

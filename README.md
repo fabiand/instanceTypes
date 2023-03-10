@@ -79,12 +79,12 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 .                           |  CX   |  GN   |  M    |  N
 ----------------------------|-------|-------|-------|------
-*Dedicated IO Threads*      |  :x:  |       |       |
-*Multi-Queue for vNICs*     |  :x:  |       |       |
-*Multi-Queue for block*     |  :x:  |       |       |
+*Dedicated IO Threads*      |       |       |       |
+*vNIC Multi-Queue*          |       |       |       |
+*Block Multi-Queue*         |       |       |       |
 *Has GPUs*                  |       |  :x:  |       |
 *Hugepages*                 |       |       |  :x:  |
-*Dedicated CPUs*            |  :x:  |       |       |
+*Dedicated CPUs*            |       |       |       |
 *Isolated emulator threads* |  :x:  |       |       |
 *vNUMA*                     |  :x:  |       |       |
 *vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:8
@@ -106,18 +106,9 @@ cores is provided to the VM.
 ### CX Characteristics
 
 Specific characteristics of this series are:
-- *Dedicated CPUs* - Dedicated physical cores are exclusively assigned
-  to every vCPU in order to provide high compute guarantees to the
-  workload
-- *Dedicated IO Threads* - IO threads are isolated from the vCPUs in
-  order to reduce IO related impact on the workload
 - *Isolated emulator threads* - Hypervisor emulator threads are isolated
   from the vCPUs in order to reduce emaulation related impact on the
   workload
-- *Multi-Queue for block* - Multiqueueing is used for disks in order to
-  increase storage performance
-- *Multi-Queue for vNICs* - Multiqueueing is used for vNICs in order to
-  increase network performance
 - *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
 - *vNUMA* - Physical NUMA topology is reflected in the guest in order to
   optimize guest sided cache utilization

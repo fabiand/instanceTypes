@@ -226,10 +226,10 @@ def characteristics():
         "Dedicated IO Threads":
             (lambda d: d["spec"].get("dedicatedIOThread", False) == True,
              "IO threads are isolated from the vCPUs in order to reduce IO related impact on the workload"),
-        "Multi-Queue for vNICs":
+        "vNIC Multi-Queue":
             (lambda d: "networkInterfaceMultiQueue" in d["spec"],
              "Multiqueueing is used for vNICs in order to increase network performance"),
-        "Multi-Queue for block":
+        "Block Multi-Queue":
             (lambda d: "blockMultiQueue" in d["spec"],
              "Multiqueueing is used for disks in order to increase storage performance"),
         "Has GPUs":

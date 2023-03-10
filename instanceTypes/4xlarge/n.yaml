@@ -1,5 +1,5 @@
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   name: "n"
 spec:

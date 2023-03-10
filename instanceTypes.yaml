@@ -1,5 +1,5 @@
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -20,21 +20,18 @@ metadata:
     series.nv: cx1
   name: cx1.2xlarge
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 8
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 16Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -55,21 +52,18 @@ metadata:
     series.nv: cx1
   name: cx1.4xlarge
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 16
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 32Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -90,21 +84,18 @@ metadata:
     series.nv: cx1
   name: cx1.8xlarge
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 32
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 64Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -125,21 +116,18 @@ metadata:
     series.nv: cx1
   name: cx1.large
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 2
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 4Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -160,21 +148,18 @@ metadata:
     series.nv: cx1
   name: cx1.medium
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 1
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 2Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha1
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Compute intensive
@@ -195,21 +180,18 @@ metadata:
     series.nv: cx1
   name: cx1.xlarge
 spec:
-  blockMultiQueue: true
   cpu:
-    dedicatedCpuPlacement: true
+    dedicatedCPUPlacement: true
     guest: 4
-    ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
       guestMappingPassthrough: {}
-  dedicatedIOThread: true
+  ioThreadsPolicy: auto
   memory:
     guest: 8Gi
-  networkInterfaceMultiQueue: true
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: GPU
@@ -230,12 +212,13 @@ spec:
   cpu:
     guest: 8
   gpus:
-  - resourceName: nvidia.com/A400
+  - deviceName: gpu0
+    name: nvidia.com/A400
   memory:
     guest: 32Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: GPU
@@ -256,12 +239,13 @@ spec:
   cpu:
     guest: 16
   gpus:
-  - resourceName: nvidia.com/A400
+  - deviceName: gpu0
+    name: nvidia.com/A400
   memory:
     guest: 64Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: GPU
@@ -282,12 +266,13 @@ spec:
   cpu:
     guest: 32
   gpus:
-  - resourceName: nvidia.com/A400
+  - deviceName: gpu0
+    name: nvidia.com/A400
   memory:
     guest: 128Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: GPU
@@ -308,12 +293,13 @@ spec:
   cpu:
     guest: 4
   gpus:
-  - resourceName: nvidia.com/A400
+  - deviceName: gpu0
+    name: nvidia.com/A400
   memory:
     guest: 16Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Memory intensive
@@ -334,8 +320,8 @@ spec:
     hugepages:
       pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Memory intensive
@@ -356,8 +342,8 @@ spec:
     hugepages:
       pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Memory intensive
@@ -378,8 +364,8 @@ spec:
     hugepages:
       pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Memory intensive
@@ -400,8 +386,8 @@ spec:
     hugepages:
       pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: Memory intensive
@@ -422,8 +408,8 @@ spec:
     hugepages:
       pageSize: 2Mi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
@@ -446,8 +432,8 @@ spec:
   memory:
     guest: 32Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
@@ -470,8 +456,8 @@ spec:
   memory:
     guest: 64Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
@@ -494,8 +480,8 @@ spec:
   memory:
     guest: 128Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
@@ -518,8 +504,8 @@ spec:
   memory:
     guest: 8Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
@@ -542,8 +528,8 @@ spec:
   memory:
     guest: 4Gi
 ---
-apiVersion: kubevirt.io/v1alpha2
-kind: VirtualMachineInstanceType
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
 metadata:
   annotations:
     series.class: General purpose
