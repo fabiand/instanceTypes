@@ -87,7 +87,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 *Dedicated CPUs*            |  :x:  |       |       |
 *Isolated emulator threads* |  :x:  |       |       |
 *vNUMA*                     |  :x:  |       |       |
-*vCPU-To-Memory Ratio*      |   2   |   4   |   4   |   8
+*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:8
 
 ## CX Series
 
@@ -118,7 +118,7 @@ Specific characteristics of this series are:
   increase storage performance
 - *Multi-Queue for vNICs* - Multiqueueing is used for vNICs in order to
   increase network performance
-- *vCPU-To-Memory Ratio 2* - A vCPU-to-Memory ratio of 1:2
+- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
 - *vNUMA* - Physical NUMA topology is reflected in the guest in order to
   optimize guest sided cache utilization
 
@@ -151,7 +151,7 @@ which is made available on OpenShift via OperatorHub.
 
 Specific characteristics of this series are:
 - *Has GPUs* - Has GPUs predefined
-- *vCPU-To-Memory Ratio 4* - A vCPU-to-Memory ratio of 1:4, for less
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
 ### Instance Types
@@ -178,7 +178,7 @@ applications.
 Specific characteristics of this series are:
 - *Hugepages* - Hugepages are used in order to improve memory
   performance
-- *vCPU-To-Memory Ratio 8* - A vCPU-to-Memory ratio of 1:8, for much
+- *vCPU-To-Memory Ratio (1:8)* - A vCPU-to-Memory ratio of 1:8, for much
   less noise per node
 
 ### Instance Types
@@ -208,7 +208,7 @@ time-slice basis with other VMs.
 ### Characteristics
 
 Specific characteristics of this series are:
-- *vCPU-To-Memory Ratio 4* - A vCPU-to-Memory ratio of 1:4, for less
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
 ### Instance Types

@@ -21,7 +21,7 @@ class InstanceType:
         i.name = doc["metadata"]["name"]
         i.series = doc["metadata"]["annotations"]["series.name"]
         i.seriesnv = doc["metadata"]["annotations"]["series.nv"]
-        i.cores = doc["spec"]["cpu"]["cores"]
+        i.cores = doc["spec"]["cpu"]["guest"]
         i.memory = doc["spec"]["memory"]["guest"]
         i.doc = doc
         return i
@@ -202,7 +202,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                         raise
         # postprocess for numerics
         for c, row in dict(rows).items():
-            m = re.search("(.*)\s+(\d+)", c)
+            m = re.search("(.*)\s+\((.*)\)", c)
             if m:
                 rows.setdefault(m.group(1), {})
                 for s, v in row.items():
@@ -217,7 +217,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 def characteristics():
     def MemoryPerCore(d):
         # We assume they are set
-        cores = d["spec"].get("cpu").get("cores")
+        cores = d["spec"].get("cpu").get("guest")
         mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
         return int(mem) / int(cores)
 
@@ -249,11 +249,11 @@ def characteristics():
         "vNUMA":
             (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
              "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
-        "vCPU-To-Memory Ratio 2":
+        "vCPU-To-Memory Ratio (1:2)":
             (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
-        "vCPU-To-Memory Ratio 4":
+        "vCPU-To-Memory Ratio (1:4)":
             (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
-        "vCPU-To-Memory Ratio 8":
+        "vCPU-To-Memory Ratio (1:8)":
             (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
     }
 

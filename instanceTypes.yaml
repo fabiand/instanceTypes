@@ -22,8 +22,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 8
     dedicatedCpuPlacement: true
+    guest: 8
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -57,8 +57,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 16
     dedicatedCpuPlacement: true
+    guest: 16
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -92,8 +92,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 32
     dedicatedCpuPlacement: true
+    guest: 32
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -127,8 +127,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 2
     dedicatedCpuPlacement: true
+    guest: 2
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -162,8 +162,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 1
     dedicatedCpuPlacement: true
+    guest: 1
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -197,8 +197,8 @@ metadata:
 spec:
   blockMultiQueue: true
   cpu:
-    cores: 4
     dedicatedCpuPlacement: true
+    guest: 4
     ioThreadsPolicy: auto
     isolateEmulatorThread: true
     numa:
@@ -228,7 +228,7 @@ metadata:
   name: gn1.2xlarge
 spec:
   cpu:
-    cores: 8
+    guest: 8
   gpus:
   - resourceName: nvidia.com/A400
   memory:
@@ -254,7 +254,7 @@ metadata:
   name: gn1.4xlarge
 spec:
   cpu:
-    cores: 16
+    guest: 16
   gpus:
   - resourceName: nvidia.com/A400
   memory:
@@ -280,7 +280,7 @@ metadata:
   name: gn1.8xlarge
 spec:
   cpu:
-    cores: 32
+    guest: 32
   gpus:
   - resourceName: nvidia.com/A400
   memory:
@@ -306,7 +306,7 @@ metadata:
   name: gn1.xlarge
 spec:
   cpu:
-    cores: 4
+    guest: 4
   gpus:
   - resourceName: nvidia.com/A400
   memory:
@@ -328,9 +328,7 @@ metadata:
   name: m1.2xlarge
 spec:
   cpu:
-    cores: 8
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    guest: 8
   memory:
     guest: 64Gi
     hugepages:
@@ -352,9 +350,7 @@ metadata:
   name: m1.4xlarge
 spec:
   cpu:
-    cores: 16
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    guest: 16
   memory:
     guest: 128Gi
     hugepages:
@@ -376,9 +372,7 @@ metadata:
   name: m1.8xlarge
 spec:
   cpu:
-    cores: 32
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    guest: 32
   memory:
     guest: 256Gi
     hugepages:
@@ -400,9 +394,7 @@ metadata:
   name: m1.large
 spec:
   cpu:
-    cores: 2
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    guest: 2
   memory:
     guest: 16Gi
     hugepages:
@@ -424,9 +416,7 @@ metadata:
   name: m1.xlarge
 spec:
   cpu:
-    cores: 4
-  dedicatedCpuPlacement: true
-  isolateEmulatorThread: true
+    guest: 4
   memory:
     guest: 32Gi
     hugepages:
@@ -452,7 +442,7 @@ metadata:
   name: n1.2xlarge
 spec:
   cpu:
-    cores: 8
+    guest: 8
   memory:
     guest: 32Gi
 ---
@@ -476,7 +466,7 @@ metadata:
   name: n1.4xlarge
 spec:
   cpu:
-    cores: 16
+    guest: 16
   memory:
     guest: 64Gi
 ---
@@ -500,7 +490,7 @@ metadata:
   name: n1.8xlarge
 spec:
   cpu:
-    cores: 32
+    guest: 32
   memory:
     guest: 128Gi
 ---
@@ -524,7 +514,7 @@ metadata:
   name: n1.large
 spec:
   cpu:
-    cores: 2
+    guest: 2
   memory:
     guest: 8Gi
 ---
@@ -548,7 +538,7 @@ metadata:
   name: n1.medium
 spec:
   cpu:
-    cores: 1
+    guest: 1
   memory:
     guest: 4Gi
 ---
@@ -572,6 +562,6 @@ metadata:
   name: n1.xlarge
 spec:
   cpu:
-    cores: 4
+    guest: 4
   memory:
     guest: 16Gi
