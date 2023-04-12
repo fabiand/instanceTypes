@@ -198,7 +198,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                     rows[c].setdefault(s, "     ")
                     try:
                         if cha[c][0](i.doc):
-                            rows[c][s] = " :x: "
+                            rows[c][s] = " &check; "
                     except:
                         raise
 
