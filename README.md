@@ -74,13 +74,13 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  CX       |  GN       |  M        |  N
-----------------------------|-----------|-----------|-----------|------
-*Has GPUs*                  |           |  &check;  |           |
-*Hugepages*                 |           |           |  &check;  |
-*Dedicated CPUs*            |  &check;  |           |           |
-*Isolated emulator threads* |  &check;  |           |           |
-*vNUMA*                     |  &check;  |           |           |
+.                           |  CX   |  GN   |  M    |  N
+----------------------------|-------|-------|-------|------
+*Has GPUs*                  |       |  ✓    |       |
+*Hugepages*                 |       |       |  ✓    |
+*Dedicated CPUs*            |  ✓    |       |       |
+*Isolated emulator threads* |  ✓    |       |       |
+*vNUMA*                     |  ✓    |       |       |
 *vCPU-To-Memory Ratio*
 
 ## CX Series

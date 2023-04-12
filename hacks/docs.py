@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 
 import yaml
 import textwrap
@@ -198,7 +199,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                     rows[c].setdefault(s, "     ")
                     try:
                         if cha[c][0](i.doc):
-                            rows[c][s] = " &check; "
+                            rows[c][s] = " ✓ "
                     except:
                         raise
 
