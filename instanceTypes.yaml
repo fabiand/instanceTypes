@@ -713,3 +713,47 @@ spec:
     guest: 32Gi
     hugepages:
       pageSize: 2Mi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Network intensive
+    series.description: |-
+      The N Series provides resources for network intensive
+      applications, like VNFs.
+
+      *N* is the abbreviation of "Network".
+    series.name: "n"
+    series.name_expanded: Network
+    series.nv: n1
+  name: n1.2xlarge
+spec:
+  cpu:
+    guest: 8
+  memory:
+    guest: 32Gi
+    hugepages:
+      pageSize: 2Mi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Network intensive
+    series.description: |-
+      The N Series provides resources for network intensive
+      applications, like VNFs.
+
+      *N* is the abbreviation of "Network".
+    series.name: "n"
+    series.name_expanded: Network
+    series.nv: n1
+  name: n1.large
+spec:
+  cpu:
+    guest: 2
+  memory:
+    guest: 8Gi
+    hugepages:
+      pageSize: 2Mi

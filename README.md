@@ -53,6 +53,9 @@ GPU([GPU]):::series --> gn1:::instancetype
 wrkld:::grp --> Memoryintensive:::series
 Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 
+wrkld:::grp --> Networkintensive:::series
+Networkintensive([Network intensive]):::series --> n1:::instancetype
+
 
 ```
 
@@ -77,16 +80,16 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  C    |  CO   |  CX   |  GN   |  M
-----------------------------|-------|-------|-------|-------|------
-*Has GPUs*                  |       |       |       |  ✓    |
-*Hugepages*                 |       |       |       |       |  ✓
-*Cache backed RAM*          |       |  ✓    |       |       |
-*Dedicated CPU performance* |       |       |  ✓    |       |
-*Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓
-*Isolated emulator threads* |       |       |  ✓    |       |
-*vNUMA*                     |       |       |  ✓    |       |
-*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:8
+.                           |  C    |  CO   |  CX   |  GN   |  M    |  N
+----------------------------|-------|-------|-------|-------|-------|------
+*Has GPUs*                  |       |       |       |  ✓    |       |
+*Hugepages*                 |       |       |       |       |  ✓    |  ✓
+*Cache backed RAM*          |       |  ✓    |       |       |       |
+*Dedicated CPU performance* |       |       |  ✓    |       |       |
+*Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓    |  ✓
+*Isolated emulator threads* |       |       |  ✓    |       |       |
+*vNUMA*                     |       |       |  ✓    |       |       |
+*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
 
 ## C Series
 
@@ -263,5 +266,33 @@ m1.xlarge  | 4     | 32Gi
 m1.2xlarge | 8     | 64Gi
 m1.4xlarge | 16    | 128Gi
 m1.8xlarge | 32    | 256Gi
+
+
+## N Series
+
+The N Series provides resources for network intensive
+applications, like VNFs.
+
+*N* is the abbreviation of "Network".
+
+### N Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Hugepages* - Hugepages are used in order to improve memory
+  performance
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### N Instance Types
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+n1.large   | 2     | 8Gi
+n1.2xlarge | 8     | 32Gi
 
 

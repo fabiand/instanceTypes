@@ -8,7 +8,7 @@ import re
 
 
 def is_valid_instancetype_name(s):
-    return bool(re.match("^((c|cx|co|m)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
+    return bool(re.match("^((c|cx|co|m|n)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
 
 def buildOne(doc, cols):
     return [f(doc) for f in cols]

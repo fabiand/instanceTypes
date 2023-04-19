@@ -6,6 +6,7 @@ resources:
 - ../series/cx
 - ../series/co
 - ../series/m
+- ../series/n
 
 nameSuffix: .large
 
@@ -22,3 +23,6 @@ patches:
 - path: m.yaml
   target:
     name: "m1"
+- path: n.yaml
+  target:
+    name: "n1"
