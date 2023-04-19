@@ -140,7 +140,8 @@ class wrkld grp
 
         for s in sorted(self.seriess.items, key=lambda i: i.name):
             nd, ndTxt = (s.cls.replace(" ", ""), s.cls)
-            if ndTxt == "General purpose":
+            # FIXME to get groups from def
+            if ndTxt in ("General purpose", "Oversubscribde):
                 out.append(f"nwrkld:::grp --> {nd}:::series")
             else:
                 out.append(f"wrkld:::grp --> {nd}:::series")
