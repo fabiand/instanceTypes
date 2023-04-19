@@ -252,7 +252,11 @@ def characteristics():
 
         "Dedicated CPUs":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
-             "Dedicated physical cores are exclusively assigned to every vCPU in order to provide high compute guarantees to the workload"),
+             "Physical cores are exclusively assigned to every vCPU in order to provide fixed and high compute guarantees to the workload"),
+        "Burstable CPUs":
+            (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == False,
+             "The workload has a baseline compute performance but is permitted to burst beyond this baseline, if excess compute is available"),
+
         "Isolated emulator threads":
             (lambda d: d["spec"].get("cpu", {}).get("isolateEmulatorThread", False) == True,
              "Hypervisor emulator threads are isolated from the vCPUs in order to reduce emaulation related impact on the workload"),
