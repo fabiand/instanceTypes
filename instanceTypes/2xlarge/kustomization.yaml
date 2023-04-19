@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../series/cx
   - ../series/n
+  - ../series/no
   - ../series/m
   - ../series/gn
 
@@ -16,6 +17,9 @@ patches:
   - path: n.yaml
     target:
       name: "n1"
+  - path: n.yaml
+    target:
+      name: "no1"
   - path: m.yaml
     target:
       name: "m1"

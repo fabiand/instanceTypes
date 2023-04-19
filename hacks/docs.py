@@ -8,7 +8,7 @@ import re
 
 
 def is_valid_instancetype_name(s):
-    return bool(re.match("^((n|cx|m)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
+    return bool(re.match("^((n|no|cx|m)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
 
 def buildOne(doc, cols):
     return [f(doc) for f in cols]
@@ -159,7 +159,7 @@ instanceTypeName = seriesName , "." , size;
 
 seriesName = ( class | vendorClass ) , version;
 
-class = "n" | "cx" | "m";
+class = "n" | "no" | "cx" | "m";
 vendorClass = "g" , vendorHint;
 vendorHint = "n" | "i" | "a";
 version = "1";
@@ -187,6 +187,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
         print(self)
 
     def buildSeriesComparisonTable(self):
+        CHECKMARK = " ✓ "
         cha = characteristics()
 
         hdr = ["."] + [" %s " % s.name.upper() for s in self.seriess.items]
@@ -199,7 +200,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
                     rows[c].setdefault(s, "     ")
                     try:
                         if cha[c][0](i.doc):
-                            rows[c][s] = " ✓ "
+                            rows[c][s] = CHECKMARK
                     except:
                         raise
 
@@ -214,13 +215,12 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
             if m:
                 rows.setdefault(m.group(1), {})
                 for s, v in row.items():
-                    if v == " :x: ":
+                    if v == CHECKMARK:
                         rows[m.group(1)][s] = " %s " % m.group(2).rjust(2)
                 del rows[c]
 
         # highlight charecteristic titles
         rows = [[f"*{c}*"] + list(r.values()) for c, r in rows.items()]
-
         return buildMarkdownTable(hdr, rows)
 
 
@@ -229,7 +229,8 @@ def characteristics():
         # We assume they are set
         cores = d["spec"].get("cpu").get("guest")
         mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
-        return int(mem) / int(cores)
+        r = int(mem) / int(cores)
+        return r
 
     knownPaths = {
         # Tuple fmt (match-fn, on-match-human-message)
@@ -264,11 +265,11 @@ def characteristics():
             (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
              "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
         "vCPU-To-Memory Ratio (1:2)":
-            (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
+            (lambda d: MemoryPerCore(d) == 2.0, "A vCPU-to-Memory ratio of 1:2"),
         "vCPU-To-Memory Ratio (1:4)":
-            (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
+            (lambda d: MemoryPerCore(d) == 4.0, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
         "vCPU-To-Memory Ratio (1:8)":
-            (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
+            (lambda d: MemoryPerCore(d) == 8.0, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
     }
 
     return knownPaths

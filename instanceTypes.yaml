@@ -551,3 +551,159 @@ spec:
     guest: 4
   memory:
     guest: 16Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.2xlarge
+spec:
+  cpu:
+    guest: 8
+  memory:
+    backend: file
+    guest: 32Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.4xlarge
+spec:
+  cpu:
+    guest: 16
+  memory:
+    backend: file
+    guest: 64Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.8xlarge
+spec:
+  cpu:
+    guest: 32
+  memory:
+    backend: file
+    guest: 128Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.large
+spec:
+  cpu:
+    guest: 2
+  memory:
+    backend: file
+    guest: 8Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.medium
+spec:
+  cpu:
+    guest: 1
+  memory:
+    backend: file
+    guest: 4Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The NO Series is based on the N Series, with the difference
+      of being memory oversubscribed.
+
+      *NO* is the abbreviation for "Neutral and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: "no"
+    series.name_expanded: Neutral and Oversubscribed
+    series.nv: no1
+  name: no1.xlarge
+spec:
+  cpu:
+    guest: 4
+  memory:
+    backend: file
+    guest: 16Gi

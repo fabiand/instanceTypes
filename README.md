@@ -50,6 +50,9 @@ Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 nwrkld:::grp --> Generalpurpose:::series
 Generalpurpose([General purpose]):::series --> n1:::instancetype
 
+nwrkld:::grp --> Generalpurpose:::series
+Generalpurpose([General purpose]):::series --> no1:::instancetype
+
 
 ```
 
@@ -62,7 +65,7 @@ instanceTypeName = seriesName , "." , size;
 
 seriesName = ( class | vendorClass ) , version;
 
-class = "n" | "cx" | "m";
+class = "n" | "no" | "cx" | "m";
 vendorClass = "g" , vendorHint;
 vendorHint = "n" | "i" | "a";
 version = "1";
@@ -74,15 +77,15 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  CX   |  GN   |  M    |  N
-----------------------------|-------|-------|-------|------
-*Has GPUs*                  |       |  ✓    |       |
-*Hugepages*                 |       |       |  ✓    |
-*Dedicated CPU performance* |  ✓    |       |       |
-*Burstable CPU performance* |       |  ✓    |  ✓    |  ✓
-*Isolated emulator threads* |  ✓    |       |       |
-*vNUMA*                     |  ✓    |       |       |
-*vCPU-To-Memory Ratio*
+.                           |  CX   |  GN   |  M    |  N    |  NO
+----------------------------|-------|-------|-------|-------|------
+*Has GPUs*                  |       |  ✓    |       |       |
+*Hugepages*                 |       |       |  ✓    |       |
+*Dedicated CPU performance* |  ✓    |       |       |       |
+*Burstable CPU performance* |       |  ✓    |  ✓    |  ✓    |  ✓
+*Isolated emulator threads* |  ✓    |       |       |       |
+*vNUMA*                     |  ✓    |       |       |       |
+*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:8
 
 ## CX Series
 
@@ -221,5 +224,40 @@ n1.xlarge  | 4     | 16Gi
 n1.2xlarge | 8     | 32Gi
 n1.4xlarge | 16    | 64Gi
 n1.8xlarge | 32    | 128Gi
+
+
+## NO Series
+
+The NO Series is based on the N Series, with the difference
+of being memory oversubscribed.
+
+*NO* is the abbreviation for "Neutral and Oversubscribed"
+hinting at the neutral attitude towards workloads and the fact
+that instances of this type are memory oversubscribed.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
+
+### NO Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### NO Instance Types
+
+The following instance types are available in this series:
+
+Name        | Cores | Memory
+------------|-------|-------
+no1.medium  | 1     | 4Gi
+no1.large   | 2     | 8Gi
+no1.xlarge  | 4     | 16Gi
+no1.2xlarge | 8     | 32Gi
+no1.4xlarge | 16    | 64Gi
+no1.8xlarge | 32    | 128Gi
 
 
