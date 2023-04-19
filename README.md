@@ -81,6 +81,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ----------------------------|-------|-------|-------|-------|------
 *Has GPUs*                  |       |  ✓    |       |       |
 *Hugepages*                 |       |       |  ✓    |       |
+*Cache backed RAM*          |       |       |       |       |  ✓
 *Dedicated CPU performance* |  ✓    |       |       |       |
 *Burstable CPU performance* |       |  ✓    |  ✓    |  ✓    |  ✓
 *Isolated emulator threads* |  ✓    |       |       |       |
@@ -244,6 +245,8 @@ Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
   performance but is permitted to burst beyond this baseline, if
   excess compute is available
+- *Cache backed RAM* - VM RAM is cached based in order to provide memory
+  overcommit
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 

@@ -251,6 +251,10 @@ def characteristics():
         "Hugepages":
             (lambda d: "hugepages" in d["spec"].get("memory", {}),
              "Hugepages are used in order to improve memory performance"),
+        "Cache backed RAM":
+            (lambda d: d["spec"].get("memory", {}).get("backend", "") == "file",
+             "VM RAM is cached based in order to provide memory overcommit"),
+
 
         "Dedicated CPU performance":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
