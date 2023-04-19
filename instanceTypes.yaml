@@ -556,7 +556,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.
@@ -582,7 +582,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.
@@ -608,7 +608,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.
@@ -634,7 +634,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.
@@ -660,7 +660,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.
@@ -686,7 +686,7 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
-    series.class: General purpose
+    series.class: Oversubscribed
     series.description: |-
       The NO Series is based on the N Series, with the difference
       of being memory oversubscribed.

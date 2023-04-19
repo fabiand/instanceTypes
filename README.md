@@ -50,8 +50,8 @@ Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 nwrkld:::grp --> Generalpurpose:::series
 Generalpurpose([General purpose]):::series --> n1:::instancetype
 
-nwrkld:::grp --> Generalpurpose:::series
-Generalpurpose([General purpose]):::series --> no1:::instancetype
+wrkld:::grp --> Oversubscribed:::series
+Oversubscribed([Oversubscribed]):::series --> no1:::instancetype
 
 
 ```
