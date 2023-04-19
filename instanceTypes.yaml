@@ -2,6 +2,312 @@ apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
   annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.2xlarge
+spec:
+  cpu:
+    guest: 8
+  memory:
+    guest: 32Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.4xlarge
+spec:
+  cpu:
+    guest: 16
+  memory:
+    guest: 64Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.8xlarge
+spec:
+  cpu:
+    guest: 32
+  memory:
+    guest: 128Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.large
+spec:
+  cpu:
+    guest: 2
+  memory:
+    guest: 8Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.medium
+spec:
+  cpu:
+    guest: 1
+  memory:
+    guest: 4Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: General purpose
+    series.description: |-
+      The C Series is quite neutral and provides resources for
+      general purpose applications.
+
+      *C* is the abbreviation for "Compute", hinting at the fact that
+      this family is providing general compute resources to
+      workloads.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: c
+    series.name_expanded: Compute
+    series.nv: c1
+  name: c1.xlarge
+spec:
+  cpu:
+    guest: 4
+  memory:
+    guest: 16Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.2xlarge
+spec:
+  cpu:
+    guest: 8
+  memory:
+    backend: file
+    guest: 32Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.4xlarge
+spec:
+  cpu:
+    guest: 16
+  memory:
+    backend: file
+    guest: 64Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.8xlarge
+spec:
+  cpu:
+    guest: 32
+  memory:
+    backend: file
+    guest: 128Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.large
+spec:
+  cpu:
+    guest: 2
+  memory:
+    backend: file
+    guest: 8Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.medium
+spec:
+  cpu:
+    guest: 1
+  memory:
+    backend: file
+    guest: 4Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
+    series.class: Oversubscribed
+    series.description: |-
+      The CO Series is based on the C Series, with the difference
+      of being memory oversubscribed.
+
+      *CO* is the abbreviation for "Compute and Oversubscribed"
+      hinting at the neutral attitude towards workloads and the fact
+      that instances of this type are memory oversubscribed.
+
+      VMs of instance types will share physical CPU cores on a
+      time-slice basis with other VMs.
+    series.name: co
+    series.name_expanded: Compute and Oversubscribed
+    series.nv: co1
+  name: co1.xlarge
+spec:
+  cpu:
+    guest: 4
+  memory:
+    backend: file
+    guest: 16Gi
+---
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  annotations:
     series.class: Compute intensive
     series.description: |-
       The CX Series provides exclusive compute resources for compute
@@ -407,303 +713,3 @@ spec:
     guest: 32Gi
     hugepages:
       pageSize: 2Mi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.2xlarge
-spec:
-  cpu:
-    guest: 8
-  memory:
-    guest: 32Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.4xlarge
-spec:
-  cpu:
-    guest: 16
-  memory:
-    guest: 64Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.8xlarge
-spec:
-  cpu:
-    guest: 32
-  memory:
-    guest: 128Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.large
-spec:
-  cpu:
-    guest: 2
-  memory:
-    guest: 8Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.medium
-spec:
-  cpu:
-    guest: 1
-  memory:
-    guest: 4Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: General purpose
-    series.description: |-
-      The N Series is quite neutral and provides resources for
-      general purpose applications.
-
-      *N* is the abbreviation for "Neutral", hinting at the neutral
-      attitude towards workloads.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "n"
-    series.name_expanded: Neutral
-    series.nv: n1
-  name: n1.xlarge
-spec:
-  cpu:
-    guest: 4
-  memory:
-    guest: 16Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.2xlarge
-spec:
-  cpu:
-    guest: 8
-  memory:
-    backend: file
-    guest: 32Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.4xlarge
-spec:
-  cpu:
-    guest: 16
-  memory:
-    backend: file
-    guest: 64Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.8xlarge
-spec:
-  cpu:
-    guest: 32
-  memory:
-    backend: file
-    guest: 128Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.large
-spec:
-  cpu:
-    guest: 2
-  memory:
-    backend: file
-    guest: 8Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.medium
-spec:
-  cpu:
-    guest: 1
-  memory:
-    backend: file
-    guest: 4Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The NO Series is based on the N Series, with the difference
-      of being memory oversubscribed.
-
-      *NO* is the abbreviation for "Neutral and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: "no"
-    series.name_expanded: Neutral and Oversubscribed
-    series.nv: no1
-  name: no1.xlarge
-spec:
-  cpu:
-    guest: 4
-  memory:
-    backend: file
-    guest: 16Gi

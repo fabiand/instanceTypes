@@ -38,6 +38,12 @@ wrkld(Workload specific)
 nwrkld(Workload agnostic)
 class wrkld grp
 
+nwrkld:::grp --> Generalpurpose:::series
+Generalpurpose([General purpose]):::series --> c1:::instancetype
+
+nwrkld:::grp --> Oversubscribed:::series
+Oversubscribed([Oversubscribed]):::series --> co1:::instancetype
+
 wrkld:::grp --> Computeintensive:::series
 Computeintensive([Compute intensive]):::series --> cx1:::instancetype
 
@@ -46,12 +52,6 @@ GPU([GPU]):::series --> gn1:::instancetype
 
 wrkld:::grp --> Memoryintensive:::series
 Memoryintensive([Memory intensive]):::series --> m1:::instancetype
-
-nwrkld:::grp --> Generalpurpose:::series
-Generalpurpose([General purpose]):::series --> n1:::instancetype
-
-nwrkld:::grp --> Oversubscribed:::series
-Oversubscribed([Oversubscribed]):::series --> no1:::instancetype
 
 
 ```
@@ -77,16 +77,88 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  CX   |  GN   |  M    |  N    |  NO
+.                           |  C    |  CO   |  CX   |  GN   |  M
 ----------------------------|-------|-------|-------|-------|------
-*Has GPUs*                  |       |  ✓    |       |       |
-*Hugepages*                 |       |       |  ✓    |       |
-*Cache backed RAM*          |       |       |       |       |  ✓
-*Dedicated CPU performance* |  ✓    |       |       |       |
-*Burstable CPU performance* |       |  ✓    |  ✓    |  ✓    |  ✓
-*Isolated emulator threads* |  ✓    |       |       |       |
-*vNUMA*                     |  ✓    |       |       |       |
+*Has GPUs*                  |       |       |       |  ✓    |
+*Hugepages*                 |       |       |       |       |  ✓
+*Cache backed RAM*          |       |  ✓    |       |       |
+*Dedicated CPU performance* |       |       |  ✓    |       |
+*Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓
+*Isolated emulator threads* |       |       |  ✓    |       |
+*vNUMA*                     |       |       |  ✓    |       |
 *vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:8
+
+## C Series
+
+The C Series is quite neutral and provides resources for
+general purpose applications.
+
+*C* is the abbreviation for "Compute", hinting at the fact that
+this family is providing general compute resources to
+workloads.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
+
+### C Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### C Instance Types
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+c1.medium  | 1     | 4Gi
+c1.large   | 2     | 8Gi
+c1.xlarge  | 4     | 16Gi
+c1.2xlarge | 8     | 32Gi
+c1.4xlarge | 16    | 64Gi
+c1.8xlarge | 32    | 128Gi
+
+
+## CO Series
+
+The CO Series is based on the C Series, with the difference
+of being memory oversubscribed.
+
+*CO* is the abbreviation for "Compute and Oversubscribed"
+hinting at the neutral attitude towards workloads and the fact
+that instances of this type are memory oversubscribed.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
+
+### CO Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Cache backed RAM* - VM RAM is cached based in order to provide memory
+  overcommit
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### CO Instance Types
+
+The following instance types are available in this series:
+
+Name        | Cores | Memory
+------------|-------|-------
+co1.medium  | 1     | 4Gi
+co1.large   | 2     | 8Gi
+co1.xlarge  | 4     | 16Gi
+co1.2xlarge | 8     | 32Gi
+co1.4xlarge | 16    | 64Gi
+co1.8xlarge | 32    | 128Gi
+
 
 ## CX Series
 
@@ -191,76 +263,5 @@ m1.xlarge  | 4     | 32Gi
 m1.2xlarge | 8     | 64Gi
 m1.4xlarge | 16    | 128Gi
 m1.8xlarge | 32    | 256Gi
-
-
-## N Series
-
-The N Series is quite neutral and provides resources for
-general purpose applications.
-
-*N* is the abbreviation for "Neutral", hinting at the neutral
-attitude towards workloads.
-
-VMs of instance types will share physical CPU cores on a
-time-slice basis with other VMs.
-
-### N Characteristics
-
-Specific characteristics of this series are:
-- *Burstable CPU performance* - The workload has a baseline compute
-  performance but is permitted to burst beyond this baseline, if
-  excess compute is available
-- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
-  noise per node
-
-### N Instance Types
-
-The following instance types are available in this series:
-
-Name       | Cores | Memory
------------|-------|-------
-n1.medium  | 1     | 4Gi
-n1.large   | 2     | 8Gi
-n1.xlarge  | 4     | 16Gi
-n1.2xlarge | 8     | 32Gi
-n1.4xlarge | 16    | 64Gi
-n1.8xlarge | 32    | 128Gi
-
-
-## NO Series
-
-The NO Series is based on the N Series, with the difference
-of being memory oversubscribed.
-
-*NO* is the abbreviation for "Neutral and Oversubscribed"
-hinting at the neutral attitude towards workloads and the fact
-that instances of this type are memory oversubscribed.
-
-VMs of instance types will share physical CPU cores on a
-time-slice basis with other VMs.
-
-### NO Characteristics
-
-Specific characteristics of this series are:
-- *Burstable CPU performance* - The workload has a baseline compute
-  performance but is permitted to burst beyond this baseline, if
-  excess compute is available
-- *Cache backed RAM* - VM RAM is cached based in order to provide memory
-  overcommit
-- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
-  noise per node
-
-### NO Instance Types
-
-The following instance types are available in this series:
-
-Name        | Cores | Memory
-------------|-------|-------
-no1.medium  | 1     | 4Gi
-no1.large   | 2     | 8Gi
-no1.xlarge  | 4     | 16Gi
-no1.2xlarge | 8     | 32Gi
-no1.4xlarge | 16    | 64Gi
-no1.8xlarge | 32    | 128Gi
 
 
