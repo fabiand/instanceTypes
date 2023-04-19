@@ -1,0 +1,22 @@
+# https://aws.amazon.com/ec2/instance-types/#Memory_Optimized
+apiVersion: instancetype.kubevirt.io/v1alpha2
+kind: VirtualMachineInstancetype
+metadata:
+  name: "n1"
+  annotations:
+    series.name: "n"
+    series.name_expanded: "Network"
+    series.nv: "n1"
+    series.description: |-
+      The N Series provides resources for network intensive
+      applications, like VNFs.
+
+      *N* is the abbreviation of "Network".
+    series.class: "Network intensive"
+spec:
+  cpu:
+    guest: 1
+  memory:
+    guest: "1Gi"
+    hugepages:
+      pageSize: "2Mi"
