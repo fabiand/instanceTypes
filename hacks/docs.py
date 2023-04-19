@@ -250,10 +250,10 @@ def characteristics():
             (lambda d: "hugepages" in d["spec"].get("memory", {}),
              "Hugepages are used in order to improve memory performance"),
 
-        "Dedicated CPUs":
+        "Dedicated CPU performance":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
              "Physical cores are exclusively assigned to every vCPU in order to provide fixed and high compute guarantees to the workload"),
-        "Burstable CPUs":
+        "Burstable CPU performance":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == False,
              "The workload has a baseline compute performance but is permitted to burst beyond this baseline, if excess compute is available"),
 

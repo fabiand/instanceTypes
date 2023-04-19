@@ -78,8 +78,8 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ----------------------------|-------|-------|-------|------
 *Has GPUs*                  |       |  ✓    |       |
 *Hugepages*                 |       |       |  ✓    |
-*Dedicated CPUs*            |  ✓    |       |       |
-*Burstable CPUs*            |       |  ✓    |  ✓    |  ✓
+*Dedicated CPU performance* |  ✓    |       |       |
+*Burstable CPU performance* |       |  ✓    |  ✓    |  ✓
 *Isolated emulator threads* |  ✓    |       |       |
 *vNUMA*                     |  ✓    |       |       |
 *vCPU-To-Memory Ratio*
@@ -101,9 +101,9 @@ cores is provided to the VM.
 ### CX Characteristics
 
 Specific characteristics of this series are:
-- *Dedicated CPUs* - Physical cores are exclusively assigned to every
-  vCPU in order to provide fixed and high compute guarantees to the
-  workload
+- *Dedicated CPU performance* - Physical cores are exclusively assigned
+  to every vCPU in order to provide fixed and high compute guarantees
+  to the workload
 - *Isolated emulator threads* - Hypervisor emulator threads are isolated
   from the vCPUs in order to reduce emaulation related impact on the
   workload
@@ -139,9 +139,9 @@ which is made available on OpenShift via OperatorHub.
 ### GN Characteristics
 
 Specific characteristics of this series are:
-- *Burstable CPUs* - The workload has a baseline compute performance but
-  is permitted to burst beyond this baseline, if excess compute is
-  available
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
 - *Has GPUs* - Has GPUs predefined
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
@@ -168,9 +168,9 @@ applications.
 ### M Characteristics
 
 Specific characteristics of this series are:
-- *Burstable CPUs* - The workload has a baseline compute performance but
-  is permitted to burst beyond this baseline, if excess compute is
-  available
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
 - *Hugepages* - Hugepages are used in order to improve memory
   performance
 - *vCPU-To-Memory Ratio (1:8)* - A vCPU-to-Memory ratio of 1:8, for much
@@ -203,9 +203,9 @@ time-slice basis with other VMs.
 ### N Characteristics
 
 Specific characteristics of this series are:
-- *Burstable CPUs* - The workload has a baseline compute performance but
-  is permitted to burst beyond this baseline, if excess compute is
-  available
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
