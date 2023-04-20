@@ -103,7 +103,7 @@ workloads.
 VMs of instance types will share physical CPU cores on a
 time-slice basis with other VMs.
 
-### C Characteristics
+### C Series Characteristics
 
 Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
@@ -112,7 +112,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### C Instance Types
+### C Series Instance Types
 
 The following instance types are available in this series:
 
@@ -138,7 +138,7 @@ that instances of this type are memory oversubscribed.
 VMs of instance types will share physical CPU cores on a
 time-slice basis with other VMs.
 
-### CO Characteristics
+### CO Series Characteristics
 
 Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
@@ -149,7 +149,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### CO Instance Types
+### CO Series Instance Types
 
 The following instance types are available in this series:
 
@@ -177,7 +177,7 @@ the IO threading from cores dedicated to the workload.
 In addition, in this series, the NUMA topology of the used
 cores is provided to the VM.
 
-### CX Characteristics
+### CX Series Characteristics
 
 Specific characteristics of this series are:
 - *Dedicated CPU performance* - Physical cores are exclusively assigned
@@ -190,7 +190,7 @@ Specific characteristics of this series are:
 - *vNUMA* - Physical NUMA topology is reflected in the guest in order to
   optimize guest sided cache utilization
 
-### CX Instance Types
+### CX Series Instance Types
 
 The following instance types are available in this series:
 
@@ -215,7 +215,7 @@ This series is intended to be used with VMs consuming GPUs
 provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
 which is made available on OpenShift via OperatorHub.
 
-### GN Characteristics
+### GN Series Characteristics
 
 Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
@@ -225,7 +225,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### GN Instance Types
+### GN Series Instance Types
 
 The following instance types are available in this series:
 
@@ -244,7 +244,7 @@ applications.
 
 *M* is the abbreviation of "Memory".
 
-### M Characteristics
+### M Series Characteristics
 
 Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
@@ -255,7 +255,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:8)* - A vCPU-to-Memory ratio of 1:8, for much
   less noise per node
 
-### M Instance Types
+### M Series Instance Types
 
 The following instance types are available in this series:
 
@@ -275,7 +275,7 @@ applications, like VNFs.
 
 *N* is the abbreviation of "Network".
 
-### N Characteristics
+### N Series Characteristics
 
 Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
@@ -286,7 +286,7 @@ Specific characteristics of this series are:
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
-### N Instance Types
+### N Series Instance Types
 
 The following instance types are available in this series:
 
