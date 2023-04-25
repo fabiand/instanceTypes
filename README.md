@@ -109,6 +109,7 @@ Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
   performance but is permitted to burst beyond this baseline, if
   excess compute is available
+- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
 - *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
   noise per node
 
@@ -119,10 +120,10 @@ The following instance types are available in this series:
 Name       | Cores | Memory
 -----------|-------|-------
 c1.medium  | 1     | 4Gi
-c1.large   | 2     | 8Gi
-c1.2xlarge | 8     | 32Gi
-c1.4xlarge | 16    | 64Gi
-c1.8xlarge | 32    | 128Gi
+c1.large   | 2     | 4Gi
+c1.2xlarge | 8     | 16Gi
+c1.4xlarge | 16    | 32Gi
+c1.8xlarge | 32    | 64Gi
 
 
 ## CO Series
