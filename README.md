@@ -117,8 +117,8 @@ The following instance types are available in this series:
 
 Name       | Cores | Memory
 -----------|-------|-------
+c1.medium  | 1     | 2Gi
 c1.large   | 2     | 4Gi
-c1.medium  | 2     | 4Gi
 c1.2xlarge | 8     | 16Gi
 c1.4xlarge | 16    | 32Gi
 c1.8xlarge | 32    | 64Gi
