@@ -1,4 +1,7 @@
 resources:
-- c
-- co
-- cx
+  - "c"
+  - "co"
+  - "cx"
+  - "gn"
+  - "m"
+  - "n"

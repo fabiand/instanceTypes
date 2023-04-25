@@ -1,9 +1,0 @@
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  name: "gn"
-spec:
-  cpu:
-    guest: 16
-  memory:
-    guest: "64Gi"

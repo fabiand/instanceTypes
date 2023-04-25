@@ -14,9 +14,6 @@ metadata:
       *N* is the abbreviation of "Network".
     series.class: "Network intensive"
 spec:
-  cpu:
-    guest: 1
   memory:
-    guest: "1Gi"
     hugepages:
       pageSize: "2Mi"

@@ -44,6 +44,18 @@ Generalpurpose([General purpose]):::series --> c1:::instancetype
 nwrkld:::grp --> Oversubscribed:::series
 Oversubscribed([Oversubscribed]):::series --> co1:::instancetype
 
+wrkld:::grp --> Computeintensive:::series
+Computeintensive([Compute intensive]):::series --> cx1:::instancetype
+
+wrkld:::grp --> GPU:::series
+GPU([GPU]):::series --> gn1:::instancetype
+
+wrkld:::grp --> Memoryintensive:::series
+Memoryintensive([Memory intensive]):::series --> m1:::instancetype
+
+wrkld:::grp --> Networkintensive:::series
+Networkintensive([Network intensive]):::series --> n1:::instancetype
+
 
 ```
 
@@ -68,11 +80,16 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  C    |  CO
-----------------------------|-------|------
-*Cache backed RAM*          |       |  ✓
-*Burstable CPU performance* |  ✓    |  ✓
-*vCPU-To-Memory Ratio*      |  1:4  |  1:4
+.                           |  C    |  CO   |  CX   |  GN   |  M    |  N
+----------------------------|-------|-------|-------|-------|-------|------
+*Has GPUs*                  |       |       |       |  ✓    |       |
+*Hugepages*                 |       |       |       |       |  ✓    |  ✓
+*Cache backed RAM*          |       |  ✓    |       |       |       |
+*Dedicated CPU performance* |       |       |  ✓    |       |       |
+*Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓    |  ✓
+*Isolated emulator threads* |       |       |  ✓    |       |       |
+*vNUMA*                     |       |       |  ✓    |       |       |
+*vCPU-To-Memory Ratio*      |  1:4  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
 
 ## C Series
 
@@ -142,5 +159,139 @@ co1.large   | 2     | 8Gi
 co1.2xlarge | 8     | 32Gi
 co1.4xlarge | 16    | 64Gi
 co1.8xlarge | 32    | 128Gi
+
+
+## CX Series
+
+The CX Series provides exclusive compute resources for compute
+intensive applications.
+
+*CX* is the abbreviation of "Compute Exclusive".
+
+The exclusive resources are given to the compute threads of the
+VM. In order to ensure this, some additional cores (depending
+on the number of disks and NICs) will be requestedto offload
+the IO threading from cores dedicated to the workload.
+In addition, in this series, the NUMA topology of the used
+cores is provided to the VM.
+
+### CX Series Characteristics
+
+Specific characteristics of this series are:
+- *Dedicated CPU performance* - Physical cores are exclusively assigned
+  to every vCPU in order to provide fixed and high compute guarantees
+  to the workload
+- *Isolated emulator threads* - Hypervisor emulator threads are isolated
+  from the vCPUs in order to reduce emaulation related impact on the
+  workload
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+- *vNUMA* - Physical NUMA topology is reflected in the guest in order to
+  optimize guest sided cache utilization
+
+### CX Series Instance Types
+
+The following instance types are available in this series:
+
+Name        | Cores | Memory
+------------|-------|-------
+cx1.medium  | 1     | 4Gi
+cx1.large   | 2     | 8Gi
+cx1.2xlarge | 8     | 32Gi
+cx1.4xlarge | 16    | 64Gi
+cx1.8xlarge | 32    | 128Gi
+
+
+## GN Series
+
+The GN Series provides instances types intended for VMs with
+NVIDIA GPU resources attached.
+
+*GN* is the abbreviation of "GPU NVIDIA".
+
+This series is intended to be used with VMs consuming GPUs
+provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
+which is made available on OpenShift via OperatorHub.
+
+### GN Series Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Has GPUs* - Has GPUs predefined
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### GN Series Instance Types
+
+The following instance types are available in this series:
+
+Name        | Cores | Memory
+------------|-------|-------
+gn1.xlarge  | 4     | 16Gi
+gn1.2xlarge | 8     | 32Gi
+gn1.4xlarge | 16    | 64Gi
+gn1.8xlarge | 32    | 128Gi
+
+
+## M Series
+
+The M Series provides resources for memory intensive
+applications.
+
+*M* is the abbreviation of "Memory".
+
+### M Series Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Hugepages* - Hugepages are used in order to improve memory
+  performance
+- *vCPU-To-Memory Ratio (1:8)* - A vCPU-to-Memory ratio of 1:8, for much
+  less noise per node
+
+### M Series Instance Types
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+m1.large   | 2     | 16Gi
+m1.xlarge  | 4     | 32Gi
+m1.2xlarge | 8     | 64Gi
+m1.4xlarge | 16    | 128Gi
+m1.8xlarge | 32    | 256Gi
+
+
+## N Series
+
+The N Series provides resources for network intensive
+applications, like VNFs.
+
+*N* is the abbreviation of "Network".
+
+### N Series Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Hugepages* - Hugepages are used in order to improve memory
+  performance
+- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
+  noise per node
+
+### N Series Instance Types
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+n1.large   | 2     | 8Gi
+n1.xlarge  | 4     | 16Gi
+n1.2xlarge | 8     | 32Gi
 
 
