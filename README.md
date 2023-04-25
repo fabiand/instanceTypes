@@ -89,7 +89,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 *Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓    |  ✓
 *Isolated emulator threads* |       |       |  ✓    |       |       |
 *vNUMA*                     |       |       |  ✓    |       |       |
-*vCPU-To-Memory Ratio*      |  1:4  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
+*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
 
 ## C Series
 
@@ -110,8 +110,6 @@ Specific characteristics of this series are:
   performance but is permitted to burst beyond this baseline, if
   excess compute is available
 - *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
-- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
-  noise per node
 
 ### C Series Instance Types
 
@@ -119,8 +117,8 @@ The following instance types are available in this series:
 
 Name       | Cores | Memory
 -----------|-------|-------
-c1.medium  | 1     | 4Gi
 c1.large   | 2     | 4Gi
+c1.medium  | 2     | 4Gi
 c1.2xlarge | 8     | 16Gi
 c1.4xlarge | 16    | 32Gi
 c1.8xlarge | 32    | 64Gi
