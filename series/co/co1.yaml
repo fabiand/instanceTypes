@@ -19,8 +19,5 @@ metadata:
       time-slice basis with other VMs.
     series.class: "Oversubscribed"
 spec:
-  cpu:
-    guest: 1
   memory:
-    guest: "1Gi"
     backend: "file"
