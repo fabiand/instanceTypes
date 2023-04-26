@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../instanceTypes.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /kind
+        value: VirtualMachineClusterInstancetype
+    target:
+      kind: VirtualMachineInstancetype
