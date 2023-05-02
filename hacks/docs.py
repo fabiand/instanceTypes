@@ -8,7 +8,7 @@ import re
 
 
 def is_valid_instancetype_name(s):
-    return bool(re.match("^((c|cx|co|m|n)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
+    return bool(re.match("^((u|uo|cx|m|n)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
 
 def buildOne(doc, cols):
     return [f(doc) for f in cols]
@@ -160,7 +160,7 @@ instanceTypeName = seriesName , "." , size;
 
 seriesName = ( class | vendorClass ) , version;
 
-class = "n" | "no" | "cx" | "m";
+class = "u" | "uo" | "cx" | "m" | "n";
 vendorClass = "g" , vendorHint;
 vendorHint = "n" | "i" | "a";
 version = "1";
