@@ -17,6 +17,7 @@ metadata:
       provided by the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator)
       which is made available on OpenShift via OperatorHub.
     series.class: "GPU"
+    series.icon.fas: fa-microchip
 spec:
   gpus:
   - deviceName: "gpu0"

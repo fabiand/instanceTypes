@@ -18,4 +18,5 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.class: "General purpose"
+    series.icon.pf-icon: pf-icon-server-group
 spec: {}

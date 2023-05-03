@@ -13,6 +13,7 @@ metadata:
 
       *M* is the abbreviation of "Memory".
     series.class: "Memory intensive"
+    series.icon.fas: fa-memory
 spec:
   memory:
     hugepages:
