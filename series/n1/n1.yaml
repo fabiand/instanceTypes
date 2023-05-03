@@ -13,6 +13,7 @@ metadata:
 
       *N* is the abbreviation of "Network".
     series.class: "Network intensive"
+    series.icon.pf: pf-icon-network
 spec:
   memory:
     hugepages:

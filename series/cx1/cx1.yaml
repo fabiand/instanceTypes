@@ -20,6 +20,7 @@ metadata:
       In addition, in this series, the NUMA topology of the used
       cores is provided to the VM.
     series.class: "Compute intensive"
+    series.icon.pf-icon: pf-icon-registry
 spec:
   cpu:
     dedicatedCPUPlacement: true
