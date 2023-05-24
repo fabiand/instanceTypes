@@ -38,12 +38,6 @@ wrkld(Workload specific)
 nwrkld(Workload agnostic)
 class wrkld grp
 
-nwrkld:::grp --> Generalpurpose:::series
-Generalpurpose([General purpose]):::series --> c1:::instancetype
-
-nwrkld:::grp --> Oversubscribed:::series
-Oversubscribed([Oversubscribed]):::series --> co1:::instancetype
-
 wrkld:::grp --> Computeintensive:::series
 Computeintensive([Compute intensive]):::series --> cx1:::instancetype
 
@@ -55,6 +49,12 @@ Memoryintensive([Memory intensive]):::series --> m1:::instancetype
 
 wrkld:::grp --> Networkintensive:::series
 Networkintensive([Network intensive]):::series --> n1:::instancetype
+
+nwrkld:::grp --> Generalpurpose:::series
+Generalpurpose([General purpose]):::series --> u1:::instancetype
+
+nwrkld:::grp --> Oversubscribed:::series
+Oversubscribed([Oversubscribed]):::series --> uo1:::instancetype
 
 
 ```
@@ -68,7 +68,7 @@ instanceTypeName = seriesName , "." , size;
 
 seriesName = ( class | vendorClass ) , version;
 
-class = "n" | "no" | "cx" | "m";
+class = "u" | "uo" | "cx" | "m" | "n";
 vendorClass = "g" , vendorHint;
 vendorHint = "n" | "i" | "a";
 version = "1";
@@ -80,85 +80,16 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  C    |  CO   |  CX   |  GN   |  M    |  N
-----------------------------|-------|-------|-------|-------|-------|------
-*Has GPUs*                  |       |       |       |  ✓    |       |
-*Hugepages*                 |       |       |       |       |  ✓    |  ✓
-*Cache backed RAM*          |       |  ✓    |       |       |       |
-*Dedicated CPU performance* |       |       |  ✓    |       |       |
-*Burstable CPU performance* |  ✓    |  ✓    |       |  ✓    |  ✓    |  ✓
-*Isolated emulator threads* |       |       |  ✓    |       |       |
-*vNUMA*                     |       |       |  ✓    |       |       |
-*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
-
-## C Series
-
-The C Series is quite neutral and provides resources for
-general purpose applications.
-
-*C* is the abbreviation for "Compute", hinting at the fact that
-this family is providing general compute resources to
-workloads.
-
-VMs of instance types will share physical CPU cores on a
-time-slice basis with other VMs.
-
-### C Series Characteristics
-
-Specific characteristics of this series are:
-- *Burstable CPU performance* - The workload has a baseline compute
-  performance but is permitted to burst beyond this baseline, if
-  excess compute is available
-- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
-
-### C Series Instance Types
-
-The following instance types are available in this series:
-
-Name       | Cores | Memory
------------|-------|-------
-c1.medium  | 1     | 2Gi
-c1.large   | 2     | 4Gi
-c1.2xlarge | 8     | 16Gi
-c1.4xlarge | 16    | 32Gi
-c1.8xlarge | 32    | 64Gi
-
-
-## CO Series
-
-The CO Series is based on the C Series, with the difference
-of being memory oversubscribed.
-
-*CO* is the abbreviation for "Compute and Oversubscribed"
-hinting at the neutral attitude towards workloads and the fact
-that instances of this type are memory oversubscribed.
-
-VMs of instance types will share physical CPU cores on a
-time-slice basis with other VMs.
-
-### CO Series Characteristics
-
-Specific characteristics of this series are:
-- *Burstable CPU performance* - The workload has a baseline compute
-  performance but is permitted to burst beyond this baseline, if
-  excess compute is available
-- *Cache backed RAM* - VM RAM is cached based in order to provide memory
-  overcommit
-- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
-  noise per node
-
-### CO Series Instance Types
-
-The following instance types are available in this series:
-
-Name        | Cores | Memory
-------------|-------|-------
-co1.medium  | 1     | 4Gi
-co1.large   | 2     | 8Gi
-co1.2xlarge | 8     | 32Gi
-co1.4xlarge | 16    | 64Gi
-co1.8xlarge | 32    | 128Gi
-
+.                           |  CX  |  GN  |  M  |  N  |  U  |  UO
+----------------------------|------|------|-----|-----|-----|-----
+*Has GPUs*                  |      |  ✓   |     |     |     |
+*Hugepages*                 |      |      |  ✓  |  ✓  |     |
+*Compressed RAM*            |      |      |     |     |     |  ✓
+*Dedicated CPU*             |  ✓   |      |     |     |     |
+*Burstable CPU performance* |      |  ✓   |  ✓  |  ✓  |  ✓  |  ✓
+*Isolated emulator threads* |  ✓   |      |     |     |     |
+*vNUMA*                     |  ✓   |      |     |     |     |
+*vCPU-To-Memory Ratio*      | 1:4  | 1:4  | 1:8 | 1:4 | 1:2 | 1:2
 
 ## CX Series
 
@@ -177,9 +108,9 @@ cores is provided to the VM.
 ### CX Series Characteristics
 
 Specific characteristics of this series are:
-- *Dedicated CPU performance* - Physical cores are exclusively assigned
-  to every vCPU in order to provide fixed and high compute guarantees
-  to the workload
+- *Dedicated CPU* - Physical cores are exclusively assigned to every
+  vCPU in order to provide fixed and high compute guarantees to the
+  workload
 - *Isolated emulator threads* - Hypervisor emulator threads are isolated
   from the vCPUs in order to reduce emaulation related impact on the
   workload
@@ -292,5 +223,72 @@ Name       | Cores | Memory
 n1.large   | 2     | 8Gi
 n1.xlarge  | 4     | 16Gi
 n1.2xlarge | 8     | 32Gi
+
+
+## U Series
+
+The U Series is quite neutral and provides resources for
+general purpose applications.
+
+*U* is the abbreviation for "Universal", hinting at the fact that
+this family is providing general compute resources to
+workloads.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
+
+### U Series Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
+
+### U Series Instance Types
+
+The following instance types are available in this series:
+
+Name       | Cores | Memory
+-----------|-------|-------
+u1.medium  | 1     | 2Gi
+u1.large   | 2     | 4Gi
+u1.2xlarge | 4     | 8Gi
+u1.4xlarge | 8     | 16Gi
+u1.8xlarge | 16    | 32Gi
+
+
+## UO Series
+
+The UO Series is based on the U Series, with the difference
+of being memory oversubscribed.
+
+*UO* is the abbreviation for "Universal and Oversubscribed"
+hinting at the neutral attitude towards workloads and the fact
+that instances of this type are memory oversubscribed.
+
+VMs of instance types will share physical CPU cores on a
+time-slice basis with other VMs.
+
+### UO Series Characteristics
+
+Specific characteristics of this series are:
+- *Burstable CPU performance* - The workload has a baseline compute
+  performance but is permitted to burst beyond this baseline, if
+  excess compute is available
+- *Compressed RAM* - VM RAM is compressed in order to provide memory
+  overcommit
+- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
+
+### UO Series Instance Types
+
+The following instance types are available in this series:
+
+Name        | Cores | Memory
+------------|-------|-------
+uo1.large   | 2     | 4Gi
+uo1.2xlarge | 4     | 8Gi
+uo1.4xlarge | 8     | 16Gi
+uo1.8xlarge | 16    | 32Gi
 
 

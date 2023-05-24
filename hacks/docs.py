@@ -6,9 +6,10 @@ import textwrap
 import io
 import re
 
+from pprint import pprint
 
 def is_valid_instancetype_name(s):
-    return bool(re.match("^((c|cx|co|m|n)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
+    return bool(re.match("^((u|uo|cx|m|n)|(g([nia])))1\.(small|medium|large|(2|4|8)?xlarge)$", s))
 
 def buildOne(doc, cols):
     return [f(doc) for f in cols]
@@ -52,6 +53,9 @@ class Series:
     def instanceTypes(self):
         series = self
         return sorted(list(filter(lambda i: i.series == series.name, (InstanceType.from_doc(doc) for doc in self._docs))), key=lambda i: i.name)
+
+    def __repr__(self):
+        return f"<Series {self.name}>"
 
     def __hash__(self):
         return hash(self.name)
@@ -160,7 +164,7 @@ instanceTypeName = seriesName , "." , size;
 
 seriesName = ( class | vendorClass ) , version;
 
-class = "n" | "no" | "cx" | "m";
+class = "u" | "uo" | "cx" | "m" | "n";
 vendorClass = "g" , vendorHint;
 vendorHint = "n" | "i" | "a";
 version = "1";
@@ -191,37 +195,51 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
         CHECKMARK = " ✓ "
         cha = characteristics()
 
-        hdr = ["."] + [" %s " % s.name.upper() for s in self.seriess.items]
+        sortedSeriesItems = sorted(self.seriess.items, key=lambda i: i.name)
 
-        rows = {}
+        hdr = ["."] + [" %s " % s.name.upper() for s in sortedSeriesItems]
+
+        rows = []
         for c in cha.keys():
-            rows[c] = {}
-            for s in self.seriess.items:
-                for i in s.instanceTypes():
-                    rows[c].setdefault(s, "     ")
+            row = [f"*{c}*"] + ["   " for s in sortedSeriesItems]
+            for series_idx, series in enumerate(sortedSeriesItems):
+                series_idx += 1
+                for instanceType in series.instanceTypes():
+                    ratio_match = re.search("(.*)\s+\((.*)\)", c)
                     try:
-                        if cha[c][0](i.doc):
-                            rows[c][s] = CHECKMARK
+                        # Is the characteristic persent in the yaml?
+                        if cha[c][0](instanceType.doc):
+                            if ratio_match:
+                                row[0] = "*%s*" % ratio_match.group(1)
+                                row[series_idx] = " %s " % ratio_match.group(2).rjust(2)
+                            else:
+                                row[series_idx] = CHECKMARK
                     except:
                         raise
 
-        # Remove non-present characteristics
-        for c, row in dict(rows).items():
-            if len("".join(row.values()).strip()) == 0:
-                del rows[c]
+            # Only add this row if this characteristic is used at all
+            if len("".join(row[1:]).strip()) > 0:
+                rows.append(row)
 
-        # postprocess for numerics
-        for c, row in dict(rows).items():
-            m = re.search("(.*)\s+\((.*)\)", c)
-            if m:
-                rows.setdefault(m.group(1), {})
-                for s, v in row.items():
-                    if v == CHECKMARK:
-                        rows[m.group(1)][s] = " %s " % m.group(2).rjust(2)
-                del rows[c]
+        # Dirty stuff to handle memory ratio
+        new_rows = []
+        row_hdrs = [r[0] for r in rows]
+        same_rows_visited = []
+        for row in rows:
+            row_hdr = row[0]
+            if row_hdr in same_rows_visited:
+                continue
+            same_rows_idx = [rhidx for rhidx, rh in enumerate(row_hdrs) if rh == row_hdr]
+            same_rows = [rows[rhidx][1:] for rhidx in same_rows_idx]
+            if len(same_rows) > 1:
+                new_row = [row_hdr] + (["".join(list(z)).strip() for z in zip(*same_rows)])
+                new_rows.append(new_row)
+                same_rows_visited.append(row_hdr)
+            else:
+                new_rows.append(row)
 
-        # highlight charecteristic titles
-        rows = [[f"*{c}*"] + list(r.values()) for c, r in rows.items()]
+        rows = new_rows
+
         return buildMarkdownTable(hdr, rows)
 
 
@@ -231,7 +249,7 @@ def characteristics():
         cores = d["spec"].get("cpu").get("guest")
         mem = re.match("\d+", d["spec"].get("memory").get("guest")).group(0)
         r = int(mem) / int(cores)
-        return r
+        return int(r)
 
     knownPaths = {
         # Tuple fmt (match-fn, on-match-human-message)
@@ -251,12 +269,12 @@ def characteristics():
         "Hugepages":
             (lambda d: "hugepages" in d["spec"].get("memory", {}),
              "Hugepages are used in order to improve memory performance"),
-        "Cache backed RAM":
-            (lambda d: d["spec"].get("memory", {}).get("backend", "") == "file",
-             "VM RAM is cached based in order to provide memory overcommit"),
+        "Compressed RAM":
+            (lambda d: d["spec"].get("memory", {}).get("compressed", None) != None,
+             "VM RAM is compressed in order to provide memory overcommit"),
 
 
-        "Dedicated CPU performance":
+        "Dedicated CPU":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
              "Physical cores are exclusively assigned to every vCPU in order to provide fixed and high compute guarantees to the workload"),
         "Burstable CPU performance":
@@ -270,11 +288,11 @@ def characteristics():
             (lambda d: "guestMappingPassthrough" in d["spec"].get("cpu", {}).get("numa", {}),
              "Physical NUMA topology is reflected in the guest in order to optimize guest sided cache utilization"),
         "vCPU-To-Memory Ratio (1:2)":
-            (lambda d: MemoryPerCore(d) == 2.0, "A vCPU-to-Memory ratio of 1:2"),
+            (lambda d: MemoryPerCore(d) == 2, "A vCPU-to-Memory ratio of 1:2"),
         "vCPU-To-Memory Ratio (1:4)":
-            (lambda d: MemoryPerCore(d) == 4.0, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
+            (lambda d: MemoryPerCore(d) == 4, "A vCPU-to-Memory ratio of 1:4, for less noise per node"),
         "vCPU-To-Memory Ratio (1:8)":
-            (lambda d: MemoryPerCore(d) == 8.0, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
+            (lambda d: MemoryPerCore(d) == 8, "A vCPU-to-Memory ratio of 1:8, for much less noise per node"),
     }
 
     return knownPaths

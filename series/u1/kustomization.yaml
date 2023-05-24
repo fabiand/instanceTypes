@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
   - sizes.yaml
 
-namePrefix: "co1."
+namePrefix: "u1."
 
 patches:
-  - path: co1.yaml
+  - path: u1.yaml
     target:
       name: ".*"

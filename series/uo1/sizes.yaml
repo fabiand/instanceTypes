@@ -1,22 +1,15 @@
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
 metadata:
-  name: "medium"
-spec:
-  cpu:
-    guest: 1
-  memory:
-    guest: "2Gi"
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
   name: "large"
 spec:
   cpu:
     guest: 2
   memory:
     guest: "4Gi"
+  resource:
+    requests:
+      memory: "3.2Gi"
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -24,9 +17,12 @@ metadata:
   name: "2xlarge"
 spec:
   cpu:
-    guest: 8
+    guest: 4
   memory:
-    guest: "16Gi"
+    guest: "8Gi"
+  resource:
+    requests:
+      memory: "6.4Gi"
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -34,9 +30,12 @@ metadata:
   name: "4xlarge"
 spec:
   cpu:
-    guest: 16
+    guest: 8
   memory:
-    guest: "32Gi"
+    guest: "16Gi"
+  resource:
+    requests:
+      memory: "12.8Gi"
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -44,7 +43,10 @@ metadata:
   name: "8xlarge"
 spec:
   cpu:
-    guest: 32
+    guest: 16
   memory:
-    guest: "64Gi"
+    guest: "32Gi"
+  resource:
+    requests:
+      memory: "25.6Gi"
 ---
