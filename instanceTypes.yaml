@@ -609,7 +609,7 @@ spec:
   memory:
     compressed: {}
     guest: 8Gi
-  resource:
+  resources:
     requests:
       memory: 6.4Gi
 ---
@@ -638,7 +638,7 @@ spec:
   memory:
     compressed: {}
     guest: 16Gi
-  resource:
+  resources:
     requests:
       memory: 12.8Gi
 ---
@@ -667,7 +667,7 @@ spec:
   memory:
     compressed: {}
     guest: 32Gi
-  resource:
+  resources:
     requests:
       memory: 25.6Gi
 ---
@@ -696,6 +696,6 @@ spec:
   memory:
     compressed: {}
     guest: 4Gi
-  resource:
+  resources:
     requests:
       memory: 3.2Gi

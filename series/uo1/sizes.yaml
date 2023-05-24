@@ -7,7 +7,7 @@ spec:
     guest: 2
   memory:
     guest: "4Gi"
-  resource:
+  resources:
     requests:
       memory: "3.2Gi"
 ---
@@ -20,7 +20,7 @@ spec:
     guest: 4
   memory:
     guest: "8Gi"
-  resource:
+  resources:
     requests:
       memory: "6.4Gi"
 ---
@@ -33,7 +33,7 @@ spec:
     guest: 8
   memory:
     guest: "16Gi"
-  resource:
+  resources:
     requests:
       memory: "12.8Gi"
 ---
@@ -46,7 +46,7 @@ spec:
     guest: 16
   memory:
     guest: "32Gi"
-  resource:
+  resources:
     requests:
       memory: "25.6Gi"
 ---

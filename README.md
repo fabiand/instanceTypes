@@ -85,6 +85,7 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 *Has GPUs*                  |      |  ✓   |     |     |     |
 *Hugepages*                 |      |      |  ✓  |  ✓  |     |
 *Compressed RAM*            |      |      |     |     |     |  ✓
+*Over-Committed Memory*     |      |      |     |     |     |  ✓
 *Dedicated CPU*             |  ✓   |      |     |     |     |
 *Burstable CPU performance* |      |  ✓   |  ✓  |  ✓  |  ✓  |  ✓
 *Isolated emulator threads* |  ✓   |      |     |     |     |
@@ -278,6 +279,8 @@ Specific characteristics of this series are:
   excess compute is available
 - *Compressed RAM* - VM RAM is compressed in order to provide memory
   overcommit
+- *Over-Committed Memory* - Memory is over-committed in order to achieve
+  a higher workload density
 - *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
 
 ### UO Series Instance Types
