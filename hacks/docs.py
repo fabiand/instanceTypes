@@ -274,7 +274,7 @@ def characteristics():
              "VM RAM is compressed in order to provide memory overcommit"),
 
 
-        "Dedicated CPU performance":
+        "Dedicated CPU":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
              "Physical cores are exclusively assigned to every vCPU in order to provide fixed and high compute guarantees to the workload"),
         "Burstable CPU performance":

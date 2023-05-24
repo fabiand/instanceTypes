@@ -80,16 +80,16 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 
 # Series
 
-.                           |  CX   |  GN   |  M    |  N    |  U    |  UO
-----------------------------|-------|-------|-------|-------|-------|------
-*Has GPUs*                  |       |  ✓    |       |       |       |
-*Hugepages*                 |       |       |  ✓    |  ✓    |       |
-*Compressed RAM*            |       |       |       |       |       |  ✓
-*Dedicated CPU performance* |  ✓    |       |       |       |       |
-*Burstable CPU performance* |       |  ✓    |  ✓    |  ✓    |  ✓    |  ✓
-*Isolated emulator threads* |  ✓    |       |       |       |       |
-*vNUMA*                     |  ✓    |       |       |       |       |
-*vCPU-To-Memory Ratio*      |  1:2  |  1:2  |  1:4  |  1:4  |  1:4  |  1:8
+.                           |  CX  |  GN  |  M  |  N  |  U  |  UO
+----------------------------|------|------|-----|-----|-----|-----
+*Has GPUs*                  |      |  ✓   |     |     |     |
+*Hugepages*                 |      |      |  ✓  |  ✓  |     |
+*Compressed RAM*            |      |      |     |     |     |  ✓
+*Dedicated CPU*             |  ✓   |      |     |     |     |
+*Burstable CPU performance* |      |  ✓   |  ✓  |  ✓  |  ✓  |  ✓
+*Isolated emulator threads* |  ✓   |      |     |     |     |
+*vNUMA*                     |  ✓   |      |     |     |     |
+*vCPU-To-Memory Ratio*      | 1:4  | 1:4  | 1:8 | 1:4 | 1:2 | 1:2
 
 ## CX Series
 
@@ -108,9 +108,9 @@ cores is provided to the VM.
 ### CX Series Characteristics
 
 Specific characteristics of this series are:
-- *Dedicated CPU performance* - Physical cores are exclusively assigned
-  to every vCPU in order to provide fixed and high compute guarantees
-  to the workload
+- *Dedicated CPU* - Physical cores are exclusively assigned to every
+  vCPU in order to provide fixed and high compute guarantees to the
+  workload
 - *Isolated emulator threads* - Hypervisor emulator threads are isolated
   from the vCPUs in order to reduce emaulation related impact on the
   workload
