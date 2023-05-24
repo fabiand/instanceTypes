@@ -480,9 +480,9 @@ metadata:
   name: u1.2xlarge
 spec:
   cpu:
-    guest: 8
+    guest: 4
   memory:
-    guest: 16Gi
+    guest: 8Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -505,9 +505,9 @@ metadata:
   name: u1.4xlarge
 spec:
   cpu:
-    guest: 16
+    guest: 8
   memory:
-    guest: 32Gi
+    guest: 16Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -530,9 +530,9 @@ metadata:
   name: u1.8xlarge
 spec:
   cpu:
-    guest: 32
+    guest: 16
   memory:
-    guest: 64Gi
+    guest: 32Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -605,10 +605,13 @@ metadata:
   name: uo1.2xlarge
 spec:
   cpu:
-    guest: 8
+    guest: 4
   memory:
-    backend: file
-    guest: 32Gi
+    compressed: {}
+    guest: 8Gi
+  resource:
+    requests:
+      memory: 6.4Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -631,10 +634,13 @@ metadata:
   name: uo1.4xlarge
 spec:
   cpu:
-    guest: 16
+    guest: 8
   memory:
-    backend: file
-    guest: 64Gi
+    compressed: {}
+    guest: 16Gi
+  resource:
+    requests:
+      memory: 12.8Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -657,10 +663,13 @@ metadata:
   name: uo1.8xlarge
 spec:
   cpu:
-    guest: 32
+    guest: 16
   memory:
-    backend: file
-    guest: 128Gi
+    compressed: {}
+    guest: 32Gi
+  resource:
+    requests:
+      memory: 25.6Gi
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -685,31 +694,8 @@ spec:
   cpu:
     guest: 2
   memory:
-    backend: file
-    guest: 8Gi
----
-apiVersion: instancetype.kubevirt.io/v1alpha2
-kind: VirtualMachineInstancetype
-metadata:
-  annotations:
-    series.class: Oversubscribed
-    series.description: |-
-      The UO Series is based on the U Series, with the difference
-      of being memory oversubscribed.
-
-      *UO* is the abbreviation for "Universal and Oversubscribed"
-      hinting at the neutral attitude towards workloads and the fact
-      that instances of this type are memory oversubscribed.
-
-      VMs of instance types will share physical CPU cores on a
-      time-slice basis with other VMs.
-    series.name: uo
-    series.name_expanded: Universal and Oversubscribed
-    series.nv: uo1
-  name: uo1.medium
-spec:
-  cpu:
-    guest: 1
-  memory:
-    backend: file
+    compressed: {}
     guest: 4Gi
+  resource:
+    requests:
+      memory: 3.2Gi

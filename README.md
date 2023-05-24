@@ -84,12 +84,12 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ----------------------------|-------|-------|-------|-------|-------|------
 *Has GPUs*                  |       |  ✓    |       |       |       |
 *Hugepages*                 |       |       |  ✓    |  ✓    |       |
-*Cache backed RAM*          |       |       |       |       |       |  ✓
+*Compressed RAM*            |       |       |       |       |       |  ✓
 *Dedicated CPU performance* |  ✓    |       |       |       |       |
 *Burstable CPU performance* |       |  ✓    |  ✓    |  ✓    |  ✓    |  ✓
 *Isolated emulator threads* |  ✓    |       |       |       |       |
 *vNUMA*                     |  ✓    |       |       |       |       |
-*vCPU-To-Memory Ratio*      |  1:2  |  1:4  |  1:4  |  1:4  |  1:4  |  1:8
+*vCPU-To-Memory Ratio*      |  1:2  |  1:2  |  1:4  |  1:4  |  1:4  |  1:8
 
 ## CX Series
 
@@ -253,9 +253,9 @@ Name       | Cores | Memory
 -----------|-------|-------
 u1.medium  | 1     | 2Gi
 u1.large   | 2     | 4Gi
-u1.2xlarge | 8     | 16Gi
-u1.4xlarge | 16    | 32Gi
-u1.8xlarge | 32    | 64Gi
+u1.2xlarge | 4     | 8Gi
+u1.4xlarge | 8     | 16Gi
+u1.8xlarge | 16    | 32Gi
 
 
 ## UO Series
@@ -276,10 +276,9 @@ Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
   performance but is permitted to burst beyond this baseline, if
   excess compute is available
-- *Cache backed RAM* - VM RAM is cached based in order to provide memory
+- *Compressed RAM* - VM RAM is compressed in order to provide memory
   overcommit
-- *vCPU-To-Memory Ratio (1:4)* - A vCPU-to-Memory ratio of 1:4, for less
-  noise per node
+- *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2
 
 ### UO Series Instance Types
 
@@ -287,10 +286,9 @@ The following instance types are available in this series:
 
 Name        | Cores | Memory
 ------------|-------|-------
-uo1.medium  | 1     | 4Gi
-uo1.large   | 2     | 8Gi
-uo1.2xlarge | 8     | 32Gi
-uo1.4xlarge | 16    | 64Gi
-uo1.8xlarge | 32    | 128Gi
+uo1.large   | 2     | 4Gi
+uo1.2xlarge | 4     | 8Gi
+uo1.4xlarge | 8     | 16Gi
+uo1.8xlarge | 16    | 32Gi
 
 
