@@ -272,10 +272,9 @@ def characteristics():
         "Compressed RAM":
             (lambda d: d["spec"].get("memory", {}).get("compressed", None) != None,
              "VM RAM is compressed in order to provide memory overcommit"),
-        "Over-Committed Memory":
-            (lambda d: d["spec"].get("resources", {}).get("requests", {}).get("memory", {}),
+        "Overcommitted Memory":
+            (lambda d: d["spec"].get("memory", {}).get("overcommitPercent"),
              "Memory is over-committed in order to achieve a higher workload density"),
-
 
         "Dedicated CPU":
             (lambda d: d["spec"].get("cpu", {}).get("dedicatedCPUPlacement", False) == True,
