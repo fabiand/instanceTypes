@@ -7,9 +7,7 @@ spec:
     guest: 2
   memory:
     guest: "4Gi"
-  resources:
-    requests:
-      memory: "3.2Gi"
+    overcommitPercent: 10
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -20,9 +18,7 @@ spec:
     guest: 4
   memory:
     guest: "8Gi"
-  resources:
-    requests:
-      memory: "6.4Gi"
+    overcommitPercent: 10
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -33,9 +29,7 @@ spec:
     guest: 8
   memory:
     guest: "16Gi"
-  resources:
-    requests:
-      memory: "12.8Gi"
+    overcommitPercent: 10
 ---
 apiVersion: instancetype.kubevirt.io/v1alpha2
 kind: VirtualMachineInstancetype
@@ -46,7 +40,5 @@ spec:
     guest: 16
   memory:
     guest: "32Gi"
-  resources:
-    requests:
-      memory: "25.6Gi"
+    overcommitPercent: 10
 ---
