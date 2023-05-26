@@ -84,7 +84,6 @@ size = "small" | "medium" | "large" | [( "2" | "4" | "8" )] , "xlarge";
 ----------------------------|------|------|-----|-----|-----|-----
 *Has GPUs*                  |      |  ✓   |     |     |     |
 *Hugepages*                 |      |      |  ✓  |  ✓  |     |
-*Compressed RAM*            |      |      |     |     |     |  ✓
 *Overcommitted Memory*      |      |      |     |     |     |  ✓
 *Dedicated CPU*             |  ✓   |      |     |     |     |
 *Burstable CPU performance* |      |  ✓   |  ✓  |  ✓  |  ✓  |  ✓
@@ -277,8 +276,6 @@ Specific characteristics of this series are:
 - *Burstable CPU performance* - The workload has a baseline compute
   performance but is permitted to burst beyond this baseline, if
   excess compute is available
-- *Compressed RAM* - VM RAM is compressed in order to provide memory
-  overcommit
 - *Overcommitted Memory* - Memory is over-committed in order to achieve
   a higher workload density
 - *vCPU-To-Memory Ratio (1:2)* - A vCPU-to-Memory ratio of 1:2

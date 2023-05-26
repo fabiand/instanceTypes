@@ -18,6 +18,4 @@ metadata:
       VMs of instance types will share physical CPU cores on a
       time-slice basis with other VMs.
     series.class: "Oversubscribed"
-spec:
-  memory:
-    compressed: {}
+spec: {}

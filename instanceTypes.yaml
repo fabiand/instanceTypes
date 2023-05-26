@@ -607,7 +607,6 @@ spec:
   cpu:
     guest: 4
   memory:
-    compressed: {}
     guest: 8Gi
     overcommitPercent: 10
 ---
@@ -634,7 +633,6 @@ spec:
   cpu:
     guest: 8
   memory:
-    compressed: {}
     guest: 16Gi
     overcommitPercent: 10
 ---
@@ -661,7 +659,6 @@ spec:
   cpu:
     guest: 16
   memory:
-    compressed: {}
     guest: 32Gi
     overcommitPercent: 10
 ---
@@ -688,6 +685,5 @@ spec:
   cpu:
     guest: 2
   memory:
-    compressed: {}
     guest: 4Gi
     overcommitPercent: 10
