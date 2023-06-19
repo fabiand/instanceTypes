@@ -100,7 +100,7 @@ intensive applications.
 
 The exclusive resources are given to the compute threads of the
 VM. In order to ensure this, some additional cores (depending
-on the number of disks and NICs) will be requestedto offload
+on the number of disks and NICs) will be requested to offload
 the IO threading from cores dedicated to the workload.
 In addition, in this series, the NUMA topology of the used
 cores is provided to the VM.
